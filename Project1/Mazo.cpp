@@ -40,3 +40,16 @@ string Mazo::toString() {
 	}
 	return s.str();
 }
+
+void Mazo::barajar() {
+	Carta* aux = NULL;
+	int indice = 0, desp=0;
+	for (int i = 0; i < CARTAS; i++) {
+		desp = i;
+		indice = int(rand() / (float)RAND_MAX * (CARTAS - i)) + desp;
+		aux = mazo[i];
+		mazo[i] = mazo[indice];
+		mazo[indice] = aux;
+	}
+	return;
+}

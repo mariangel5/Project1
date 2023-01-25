@@ -47,24 +47,24 @@ string Carta::toString() {
 	stringstream s;
 	if (bocaAbajo == true) { 
 		s << "-------------- " << endl;
-		s << "|            |" << endl;
-		s << "|            |" << endl;
-		s << "|            |" << endl;
-		s << "|  ********  |" << endl;
-		s << "|            |" << endl;
-		s << "|            |" << endl;
-		s << "|            |" << endl;
+		s << endl;
+		s << endl;
+		s << endl;
+		s << "   ********   " << endl;
+		s << endl;
+		s << endl;
+		s << endl;
 		s << "-------------- " << endl;
 	}
 	else {
 		s << "-------------- " << endl;
-		s << "| "<<valor<<"          |" << endl;
-		s << "|" << "            |" << endl;
-		s << "|" << "            |" << endl;
-		s << "|  "<<palo<<"   |" << endl;
-		s << "|" << "            |" << endl;
-		s << "|" << "            |" << endl;
-		s << "|" << "          " << valor<< endl;
+		s << valor << endl;
+		s << endl;
+		s << endl;
+		s << "   "<<palo<<"  " << endl;
+		s << endl;
+		s << endl;
+		s << "             " << valor << endl;
 		s << "-------------- " << endl;
 	}
 	return s.str();
