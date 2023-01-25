@@ -1,5 +1,5 @@
 #include "Carta.h"
-
+using namespace std;
 #pragma once
 class Mazo
 {
