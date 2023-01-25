@@ -9,7 +9,6 @@ Mazo::Mazo() {
 }
 
 Mazo::~Mazo() {
-
 	for (int i = 0; i < cant; i++) {
 		delete mazo[i];
 		delete[] mazo;

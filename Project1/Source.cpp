@@ -1,24 +1,31 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-#include "Mazo.h"
+#include "Mano.h"
 using namespace std;
 
 
 int main() {
-	Mazo d;
-	d.inicializar();
-	cout << d.toString();
-	system("PAUSE");
-	system("CLS");
+	Mazo* d = new Mazo();
+	d->inicializar();
+	d->barajar();
+	//cout << d->toString();
+	//system("PAUSE");
+	//system("CLS");
 
-	cout<< d.tomarCarta()->toString();
-	//d.barajar();
+		//d.barajar();
 	//cout<<d.toString();
 
-	//Carta* c = new Carta("A", "Diamantes");
-	//c->setBocaAbajo(0);
-	//cout<<c->toString();
+
+	Mano a;
+	a.agregarCarta(d);
+	cout << a.toString();
+	system("PAUSE");
+	system("CLS");
+	a.limpiar();
+	cout<< a.toString();
+	
+	
 
 	return 0;
 }

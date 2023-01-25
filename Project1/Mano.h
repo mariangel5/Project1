@@ -1,7 +1,7 @@
 #include "Mazo.h"
 
 #pragma once
-class Mano : public Mazo
+class Mano   
 {
 public:
 	Mano();
@@ -9,7 +9,11 @@ public:
 	void agregarCarta(Mazo*);
 	void limpiar();
 	int getPuntos();
+	string toString();
+
 private:
-	Carta* cartas;
+	Carta** cartas;
+	int tam;
+	int can;
 };
 
