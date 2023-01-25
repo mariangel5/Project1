@@ -9,5 +9,9 @@ public:
 	void inicializar();
 	void barajar();
 	Carta* tomarCarta();
+	string toString();
+private:
+	Carta* mazo;
+	int cant;
 };
 

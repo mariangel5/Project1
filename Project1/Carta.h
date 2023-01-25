@@ -3,24 +3,28 @@
 #include <string>
 using namespace std;
 
+#define PALOS    4
+#define NUMEROS 13
+#define CARTAS  (NUMEROS*PALOS)
+
 #pragma once
 class Carta
 {
 public:
 	Carta();
-	Carta(int, string);
+	Carta(string, string);
 	~Carta();
-	void setValor(int);
+	void setValor(string);
 	void setPalo(string);
 	void setBocaAbajo(bool);
-	int getValor();
+	string getValor();
 	string getPalo();
 	bool getBocaAbajo();
 	void voltear();
 	string toString();
 
 private:
-	int valor;
+	string valor;
 	string palo;
 	bool bocaAbajo;
 };

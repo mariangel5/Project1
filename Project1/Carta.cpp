@@ -1,12 +1,12 @@
 #include "Carta.h"
 
 Carta::Carta() {
-	valor = 0;
+	valor = "0";
 	palo = "Indefinido";
 	bocaAbajo = 0;
 } 
 
-Carta::Carta(int val, string pal) : valor(val), palo(pal) {
+Carta::Carta(string val, string pal) : valor(val), palo(pal) {
 	bocaAbajo = 0;
 }
 	
@@ -16,7 +16,7 @@ void Carta::setPalo(string pal) {
 	palo = pal;
 }
 
-void Carta::setValor(int val) {
+void Carta::setValor(string val) {
 	valor = val;
 }
 
@@ -28,7 +28,7 @@ string Carta::getPalo() {
 	return palo;
 }
 
-int Carta::getValor() {
+string Carta::getValor() {
 	return valor;
 }
 
@@ -37,14 +37,14 @@ bool Carta::getBocaAbajo() {
 }
 
 void Carta::voltear() { //Si la carta esta boca abajo le da vuelta para mostrar los valores de la carta
-	if (bocaAbajo == true) {
-		bocaAbajo == false;
+	if (bocaAbajo = true) {
+		bocaAbajo = false;
 	}
 }
 
 string Carta::toString() {
 	stringstream s;
-	if (bocaAbajo == true) { 
+	if (this->bocaAbajo == true) { 
 		s << "-------------- " << endl;
 		s << "|            |" << endl;
 		s << "|            |" << endl;
