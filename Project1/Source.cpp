@@ -6,9 +6,9 @@ using namespace std;
 
 
 int main() {
-	Mazo x;
-	x.inicializar();
-	cout<< x.toString();
+	Mazo d;
+	d.inicializar();
+	cout << d.toString();
 
 	return 0;
 }

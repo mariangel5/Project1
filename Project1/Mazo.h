@@ -11,7 +11,7 @@ public:
 	Carta* tomarCarta();
 	string toString();
 private:
-	Carta* mazo;
+	Carta** mazo;
 	int cant;
 };
 

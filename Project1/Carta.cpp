@@ -8,6 +8,7 @@ Carta::Carta() {
 
 Carta::Carta(string val, string pal) : valor(val), palo(pal) {
 	bocaAbajo = 0;
+
 }
 	
 Carta::~Carta() {}
@@ -57,13 +58,13 @@ string Carta::toString() {
 	}
 	else {
 		s << "-------------- " << endl;
-		s << "| A" << "          |" << endl;
+		s << "| "<<valor<<"          |" << endl;
 		s << "|" << "            |" << endl;
 		s << "|" << "            |" << endl;
-		s << "|  corazon   |" << endl;
+		s << "|  "<<palo<<"   |" << endl;
 		s << "|" << "            |" << endl;
 		s << "|" << "            |" << endl;
-		s << "|" << "          A |" << endl;
+		s << "|" << "          " << valor<< endl;
 		s << "-------------- " << endl;
 	}
 	return s.str();
