@@ -72,11 +72,19 @@ string Carta::toString() {
 
 int Carta::stringToInt(string v) {
 	int x = 0;
-	if (v == "A") {
-		return x = 10;
-	}
-	else if (v == "1") {
-		return (x = 1);
-	}
+	if (v == "A") { return x = 10; }
+	else if (v == "1") { return x = 1; }
+	else if (v == "2") { return x = 2; }
+	else if (v == "3") { return x = 3; }
+	else if (v == "4") { return x = 4; }
+	else if (v == "5") { return x = 5; }
+	else if (v == "6") { return x = 6; }
+	else if (v == "7") { return x = 7; }
+	else if (v == "8") { return x = 8; }
+	else if (v == "9") { return x = 9; }
+	else if (v == "10") { return x = 10; }
+	else if (v == "J") { return x = 10; }
+	else if (v == "Q") { return x = 10; }
+	else if (v == "K") { return x = 10; }
 	return x;
 }
