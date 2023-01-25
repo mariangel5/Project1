@@ -9,6 +9,7 @@ public:
 
 	Jugador(string, Mano*);
 	~Jugador();
-	virtual Carta* pedirCarta();
+	Carta* pedirCarta();
+	string toString();
 };
 #endif

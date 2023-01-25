@@ -7,9 +7,9 @@ Dealer::Dealer(string nickname, Mano* mano) {
 Dealer::~Dealer() {
 
 }
-Carta* Dealer::pedirCarta() {
-
-}
+//Carta* Dealer::pedirCarta() {
+//
+//}
 void Dealer::volteaSegunda() {
 
 }

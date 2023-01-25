@@ -5,7 +5,6 @@
 #include <sstream>
 #include <string>
 #include "Mano.h"
-#include "Carta.h"
 using namespace std;
 
 class JugadorGenerico
@@ -22,7 +21,7 @@ public:
 	string  getNickname();
 	void setMano(Mano*);
 	Mano*  getMano();
-	virtual Carta* pedirCarta();
+	Carta* pedirCarta();
 	bool sePaso();
 
 };

@@ -73,10 +73,10 @@ string Carta::toString() {
 int Carta::stringToInt(string v) {
 	int x = 0;
 	if (v == "A") {
-		return (x = 10);
+		return x = 10;
+	}
+	else if (v == "1") {
+		return (x = 1);
 	}
 	return x;
-	//else if (v == "1") {
-
-	//}
 }

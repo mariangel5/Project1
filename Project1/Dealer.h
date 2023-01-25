@@ -7,7 +7,7 @@ class Dealer: JugadorGenerico
 public:
 	Dealer(string, Mano*);
 	~Dealer();
-	virtual Carta* pedirCarta();
+	Carta* pedirCarta();
 	void volteaSegunda();
 };
 
