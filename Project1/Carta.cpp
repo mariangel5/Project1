@@ -45,7 +45,7 @@ void Carta::voltear() { //Si la carta esta boca abajo le da vuelta para mostrar 
 
 string Carta::toString() {
 	stringstream s;
-	if (this->bocaAbajo == true) { 
+	if (bocaAbajo == true) { 
 		s << "-------------- " << endl;
 		s << "|            |" << endl;
 		s << "|            |" << endl;
