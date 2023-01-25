@@ -40,3 +40,12 @@ string Mano::toString() {
 	}
 	return s.str();
 }
+
+int Mano::getPuntos() {
+	int totPun = 0;
+	for (int i = 0; i < can; i++) {
+		totPun = totPun + cartas[i]->stringToInt(cartas[i]->getValor()); //...
+	}
+	return totPun;
+}
+

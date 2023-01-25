@@ -66,3 +66,4 @@ Carta* Mazo::tomarCarta() { //Metodo regresar ultima carta del mazo
 	return aux;
 
 }
+

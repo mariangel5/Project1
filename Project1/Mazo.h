@@ -10,6 +10,7 @@ public:
 	void barajar();
 	Carta* tomarCarta();
 	string toString();
+
 protected:
 	Carta** mazo;
 	int cant;

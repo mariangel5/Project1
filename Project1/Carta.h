@@ -22,6 +22,7 @@ public:
 	string getValor();
 	string getPalo();
 	bool getBocaAbajo();
+	int stringToInt(string);
 	void voltear();
 	string toString();
 

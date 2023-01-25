@@ -69,3 +69,14 @@ string Carta::toString() {
 	}
 	return s.str();
 }
+
+int Carta::stringToInt(string v) {
+	int x = 0;
+	if (v == "A") {
+		return (x = 10);
+	}
+	return x;
+	//else if (v == "1") {
+
+	//}
+}

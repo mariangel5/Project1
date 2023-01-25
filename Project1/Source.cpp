@@ -6,9 +6,13 @@ using namespace std;
 
 
 int main() {
-	Mazo* d = new Mazo();
-	d->inicializar();
-	d->barajar();
+
+	Carta* c = new Carta("A", "Cora");
+	c->toString();
+	cout<< c->stringToInt(c->getValor());
+	//Mazo* d = new Mazo();
+	//d->inicializar();
+	//d->barajar();
 	//cout << d->toString();
 	//system("PAUSE");
 	//system("CLS");
@@ -17,13 +21,14 @@ int main() {
 	//cout<<d.toString();
 
 
-	Mano a;
-	a.agregarCarta(d);
-	cout << a.toString();
-	system("PAUSE");
-	system("CLS");
-	a.limpiar();
-	cout<< a.toString();
+
+	//Mano a;
+	//a.agregarCarta(d);
+	//cout << a.toString();
+	//system("PAUSE");
+	//system("CLS");
+	//a.limpiar();
+	//cout<< a.toString();
 	
 	
 
