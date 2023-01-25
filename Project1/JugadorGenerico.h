@@ -23,6 +23,7 @@ public:
 	Mano*  getMano();
 	Carta* pedirCarta();
 	bool sePaso();
+	string toString();
 
 };
 
