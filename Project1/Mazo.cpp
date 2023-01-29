@@ -11,8 +11,8 @@ Mazo::Mazo() {
 Mazo::~Mazo() {
 	for (int i = 0; i < cant; i++) {
 		delete mazo[i];
-		delete[] mazo;
 	}
+	delete[] mazo;
 }
 
 void Mazo::inicializar() {
@@ -24,7 +24,7 @@ void Mazo::inicializar() {
 			aux = new Carta(numeros[i], palos[j]);
 			if (mazo[NUMEROS*j+i] == nullptr) { //Se guardan las cartas en el vector
 				mazo[NUMEROS * j + i] = aux;
-				cant = 0;
+				cant++;
 			}
 		}
 	}
@@ -32,7 +32,7 @@ void Mazo::inicializar() {
 
 string Mazo::toString() {
 	stringstream s;
-	for (int i = 0; i < CARTAS; i++) {
+	for (int i = 0; i < cant; i++) {
 		if (mazo[i] != nullptr) {
 			s << i+1<< mazo[i]->toString() << endl;
 		}
@@ -60,7 +60,8 @@ Carta* Mazo::tomarCarta() { //Metodo regresar ultima carta del mazo
 		if (mazo[i] != nullptr) {
 			aux = mazo[i];
 			mazo[i] = nullptr;
-			i = -2;
+			cant--;
+			i = -2;   
 		}
 	}
 	return aux;

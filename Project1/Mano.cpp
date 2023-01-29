@@ -12,8 +12,8 @@ Mano::Mano() {
 Mano::~Mano() {
 	for (int i = 0; i < can; i++) {
 		delete cartas[i];
-		delete[] cartas;
 	}
+	delete[] cartas;
 }
 
 void Mano::agregarCarta(Mazo* ca) { //Se añade una carta del mazo a la mano del jugador
@@ -39,6 +39,16 @@ string Mano::toString() {
 
 	}
 	return s.str();
+}
+
+bool Mano::buscarAs() {
+	for (int i = 0; i < can; i++) {
+		if (cartas[i]->getValor() == "As") {
+			return true;
+		}
+	}
+	return false;
+
 }
 
 int Mano::getPuntos() {

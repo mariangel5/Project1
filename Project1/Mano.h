@@ -10,6 +10,7 @@ public:
 	void limpiar();
 	int getPuntos();
 	string toString();
+	bool buscarAs();
 
 private:
 	Carta** cartas;
