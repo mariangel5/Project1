@@ -14,9 +14,9 @@ int main() {
 	Mazo* d = new Mazo();
 	d->inicializar();
 	d->barajar();
-	cout << d->toString();
-	system("PAUSE");
-	system("CLS");
+	//cout << d->toString();
+	//system("PAUSE");
+	//system("CLS");
 	
 	//d.barajar();
 	//cout<<d.toString();
@@ -25,11 +25,10 @@ int main() {
 
 	Mano a;
 	a.agregarCarta(d);
-	a.agregarCarta(d);
-	a.agregarCarta(d);
-
+	
 	cout << a.toString();
-	cout << a.getPuntos();
+	cout << a.buscarAs();
+	
 	//system("PAUSE");
 	//system("CLS");
 	//a.limpiar();

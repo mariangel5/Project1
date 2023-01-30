@@ -43,9 +43,7 @@ string Mazo::toString() {
 
 void Mazo::barajar() {
 	srand(unsigned(std::time(0)));
-	int i = 0;
-	int numRand = rand() % i;
-	random_shuffle(&mazo[0], &mazo[CARTAS], numRand); //metodo de libreria de c++ para barajar
+	random_shuffle(&mazo[0], &mazo[CARTAS]); //metodo de libreria de c++ para barajar
 }
 
 Carta* Mazo::tomarCarta() { //Metodo regresar ultima carta del mazo

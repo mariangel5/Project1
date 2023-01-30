@@ -43,7 +43,7 @@ string Mano::toString() {
 
 bool Mano::buscarAs() {
 	for (int i = 0; i < can; i++) {
-		if (cartas[i]->getValor() == "As") {
+		if (cartas[i]->getValor() == "A") {
 			return true;
 		}
 	}
