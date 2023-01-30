@@ -1,3 +1,5 @@
+#include <algorithm>
+#include <cstdlib>
 #include "Carta.h"
 using namespace std;
 #pragma once
@@ -10,6 +12,7 @@ public:
 	void barajar();
 	Carta* tomarCarta();
 	string toString();
+	int numRandom(int);
 
 protected:
 	Carta** mazo;

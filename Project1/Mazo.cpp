@@ -42,16 +42,10 @@ string Mazo::toString() {
 }
 
 void Mazo::barajar() {
-	Carta* aux = nullptr;
-	int indice = 0, j=0;
-	for (int i = 0; i < CARTAS; i++) {
-		j = i;
-		indice = int(rand() / (float)RAND_MAX * (CARTAS - i)) + j; //Se crea un auxiliar para ir moviendo las cartas a un numero random
-		aux = mazo[i];
-		mazo[i] = mazo[indice];
-		mazo[indice] = aux;
-	}
-	return;
+	srand(unsigned(std::time(0)));
+	int i = 0;
+	int numRand = rand() % i;
+	random_shuffle(&mazo[0], &mazo[CARTAS], numRand); //metodo de libreria de c++ para barajar
 }
 
 Carta* Mazo::tomarCarta() { //Metodo regresar ultima carta del mazo
