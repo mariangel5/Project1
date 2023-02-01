@@ -60,3 +60,13 @@ Carta* Mazo::tomarCarta() { //Metodo regresar ultima carta del mazo
 
 }
 
+
+Carta* Mazo::getCarta(string n, string p) {
+	for (int i = 0; i < cant; i++) {
+		if (mazo[i]->getValor() == n && mazo[i]->getPalo() == p) {
+			return mazo[i];
+		}
+
+	}
+	return nullptr;
+}

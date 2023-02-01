@@ -41,7 +41,7 @@ string Mano::toString() {
 	return s.str();
 }
 
-bool Mano::buscarAs() {
+bool Mano::buscarA() {
 	for (int i = 0; i < can; i++) {
 		if (cartas[i]->getValor() == "A") {
 			return true;
@@ -54,8 +54,16 @@ bool Mano::buscarAs() {
 int Mano::getPuntos() {
 	int totPun = 0;
 	for (int i = 0; i < can; i++) {
-		totPun = totPun + cartas[i]->stringToInt(cartas[i]->getValor()); //...
+		totPun = totPun + cartas[i]->stringToInt(cartas[i]->getValor()); //Recorre el vector, guardando el valor de las cartas
+	}
+	if (buscarA() == true && totPun + 10 <= 21) { //Comprueba el total para usar el valor de A que le convenga mas al usuario
+		totPun = totPun + 10;
 	}
 	return totPun;
 }
 
+void Mano::agregarCarta(Carta* c) {
+	if (can < tam) {
+		cartas[can++] = c;
+	}
+}

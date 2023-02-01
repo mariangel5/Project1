@@ -72,7 +72,7 @@ string Carta::toString() {
 
 int Carta::stringToInt(string v) {
 	int x = 0;
-	if (v == "A") { return x = 10; }
+	if (v == "A") { return x = 1; }
 	else if (v == "1") { return x = 1; }
 	else if (v == "2") { return x = 2; }
 	else if (v == "3") { return x = 3; }

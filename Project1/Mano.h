@@ -11,6 +11,7 @@ public:
 	int getPuntos();
 	string toString();
 	bool buscarA();
+	void agregarCarta(Carta*);
 
 private:
 	Carta** cartas;

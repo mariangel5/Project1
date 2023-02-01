@@ -12,7 +12,7 @@ public:
 	void barajar();
 	Carta* tomarCarta();
 	string toString();
-	int numRandom(int);
+	Carta* getCarta(string, string);
 
 protected:
 	Carta** mazo;
