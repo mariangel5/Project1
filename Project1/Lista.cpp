@@ -44,9 +44,8 @@ void Lista::insertar(Nodo j) {
 }
 
 void Lista::insertarFinal(JugadorGenerico* j) {//inserta un jugador al final de la lista
-	Nodo* actual;
-	actual = inicio;
-	if (inicio == NULL) {
+	Nodo* actual = inicio;
+	if (actual == NULL) {
 		inicio = new Nodo(j, NULL);
 	}
 	else {
@@ -66,8 +65,7 @@ bool Lista::listaVacia() {
 
 int Lista::cuentaNodos() {
 	int cont = 0;
-	Nodo* actual;
-	actual = inicio;
+	Nodo* actual = inicio;
 	while (actual != NULL) {
 		cont++;
 		actual = actual->getNext();
@@ -77,8 +75,7 @@ int Lista::cuentaNodos() {
 
 string Lista::toString() {
 	stringstream s;
-	Nodo* actual;
-	actual = inicio;
+	Nodo* actual = inicio;
 	while (actual != NULL) {
 		s << actual->toString();
 		s << actual->getJugador()->getMano()->toString();

@@ -1,5 +1,6 @@
 #pragma once
-#include "JugadorGenerico.h" 
+#include "Jugador.h" 
+#include "Dealer.h"
 
 class Nodo { //preguntar si se puede dejar en public todo 
 public:

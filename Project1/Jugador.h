@@ -3,13 +3,13 @@
 
 #include "JugadorGenerico.h"
 
-class Jugador:public JugadorGenerico
-{
+class Jugador: public JugadorGenerico {
+
 public:
 
 	Jugador(string, Mano*);
 	~Jugador();
-	Carta* pedirCarta();
+	//Carta* pedirCarta();
 	string toString();
 };
 #endif

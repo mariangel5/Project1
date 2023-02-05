@@ -28,9 +28,3 @@ Mano* JugadorGenerico::getMano() {
 	return mano;
 }
 
-//Carta* JugadorGenerico::pedirCarta() {
-//
-//}
-//bool JugadorGenerico::sePaso() {
-//
-//}

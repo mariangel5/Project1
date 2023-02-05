@@ -16,14 +16,14 @@ protected:
 public:
 	JugadorGenerico();
 	JugadorGenerico(string, Mano*);
-	~JugadorGenerico();
+	virtual ~JugadorGenerico();
 	void setNickname(string);
 	string  getNickname();
 	void setMano(Mano*);
 	Mano*  getMano();
-	Carta* pedirCarta();
+	//virtual Carta* pedirCarta() = 0;
 	bool sePaso();
-	string toString();
+	virtual string toString() =0;
 
 };
 
