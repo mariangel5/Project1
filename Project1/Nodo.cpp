@@ -25,8 +25,7 @@ void Nodo::setNext(Nodo* sig) {
 
 string Nodo::toString() {//imprime la informacion contenida en el nodo
 	stringstream s; //toString Temporal
-	s << "Datos: " << endl;
-	s << dato << endl;
+	s << dato->toString() << endl;
 	return s.str();
 
 }
