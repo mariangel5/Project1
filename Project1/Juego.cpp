@@ -24,17 +24,24 @@ void Juego::juegoNuevo() {
 	} while (numJug > 7 || 0 >= numJug);
 	
 	for (int i = 0; i < numJug; i++) {
-		cout << i+1 << ". Digite su nickname: ";
+		cout << "=======JUGADOR "<< i + 1 << "======= "  << endl;
+		cout<< "Digite su nickname: ";
 		cin >> nomb;
 		Mano* manJ = new Mano();
 		JugadorGenerico* j1 = new Jugador(nomb, manJ);
 		jugadores->insertarFinal(j1);
 		system("CLS");
 
-		mazo->inicializar();
-		mazo->barajar();
 		
 	}
+	
+		system("PAUSE");
+		mazo->inicializar();
+		mazo->barajar();
+		for (int i = 0; i < jugadores->cuentaNodos(); i++) {
+			//jugadores-
+		}
+		cout<< jugadores->toString();
 	
 
 }

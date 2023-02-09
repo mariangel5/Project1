@@ -20,6 +20,8 @@ Lista::~Lista() {
 	}
 }
 
+
+
 /*Lista::~Lista() { //otro constructor que pude servir 
 	Nodo* temp = inicio;
 	while (temp != NULL) {
