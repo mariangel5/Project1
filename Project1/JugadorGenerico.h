@@ -23,7 +23,7 @@ public:
 	void setMano(Mano*);
 	Mano*  getMano();
 	//virtual Carta* pedirCarta() = 0;
-	bool sePaso();
+	/*bool sePaso();*/
 	virtual string toString() =0;
 
 };
