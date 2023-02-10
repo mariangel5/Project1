@@ -16,6 +16,5 @@ string Jugador::toString() {
 	s << "============ " << nickname << " ============" << endl;
 	//s << "-Mano: " << endl 
 	s << "\n" << mano->toString() << endl;
-	s << "----------------------------------" << endl;
 	return s.str();
 }

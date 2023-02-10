@@ -12,7 +12,6 @@ class JugadorGenerico
 protected:
 	string nickname;
 	Mano* mano;
-	int num;
 
 public:
 	JugadorGenerico();
