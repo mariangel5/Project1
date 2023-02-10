@@ -1,11 +1,12 @@
 #include "Mano.h"
 #include "Lista.h"
-#include <cctype>
+//#include <cctype>
 
 #pragma once
 class Juego
 {
 public:
-	static void juegoNuevo();
+	static void iniciaNuevoJuego();
+	static void iniciarPartidas(Mazo*, Lista*, Dealer*);
 };
 

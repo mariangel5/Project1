@@ -17,6 +17,7 @@ void Dealer::volteaSegunda() {
 string Dealer::toString() {
 	stringstream s;
 	s << "============= DEALER =============" << endl;
-	s << "\nMano: " << endl << mano->toString() << endl;
+	//s << "\nMano: " << endl
+	s << "\n" << mano->toString() << endl;
 	return s.str();
 }

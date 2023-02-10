@@ -13,8 +13,9 @@ Jugador::~Jugador() {
 
 string Jugador::toString() {
 	stringstream s; 
-	s << "============Datos de Jugador============" << endl;
-	s << "-Nickname: " << nickname << endl;
-	s << "-Mano: " << endl << mano->toString() << endl;
+	s << "============ " << nickname << " ============" << endl;
+	//s << "-Mano: " << endl 
+	s << "\n" << mano->toString() << endl;
+	s << "----------------------------------" << endl;
 	return s.str();
 }
