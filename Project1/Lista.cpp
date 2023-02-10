@@ -80,7 +80,6 @@ string Lista::toString() {
 	Nodo* actual = inicio;
 	while (actual != NULL) {
 		s << actual->toString();
-		s << actual->getJugador()->getMano()->toString();
 		actual = actual->getNext();
 	}
 	return s.str();

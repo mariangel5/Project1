@@ -12,7 +12,7 @@ public:
 	bool listaVacia();
 	int cuentaNodos();
 	void insertarFinal(JugadorGenerico*);
-	JugadorGenerico* getJugador(int);
+	//JugadorGenerico* getJugador(int);
 	/*JugadorGenerico* getGanador(int);
 	bool buscarJugador(string); */
 private:

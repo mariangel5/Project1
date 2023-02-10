@@ -1,6 +1,7 @@
 #include "Juego.h"
 
 void Juego::juegoNuevo() {
+	system("CLS");
 	bool sePuede = true;
 	bool turno = true;
 	Lista* jugadores = new Lista();
@@ -23,6 +24,9 @@ void Juego::juegoNuevo() {
 		}
 	} while (numJug > 7 || 0 >= numJug);
 	
+		mazo->inicializar();
+		mazo->barajar();
+
 	for (int i = 0; i < numJug; i++) {
 		cout << "=======JUGADOR "<< i + 1 << "======= "  << endl;
 		cout<< "Digite su nickname: ";
@@ -31,18 +35,16 @@ void Juego::juegoNuevo() {
 		JugadorGenerico* j1 = new Jugador(nomb, manJ);
 		jugadores->insertarFinal(j1);
 		system("CLS");
-
-		
+		manJ->agregarCarta(mazo);
+		manJ->agregarCarta(mazo);
 	}
-	
-		system("PAUSE");
-		mazo->inicializar();
-		mazo->barajar();
-		for (int i = 0; i < jugadores->cuentaNodos(); i++) {
-			//jugadores-
-		}
-		cout<< jugadores->toString();
-	
+	manoD->agregarCarta(mazo);
+	manoD->agregarCarta(mazo);
+	dealer->volteaSegunda();
+
+	system("PAUSE");
+	cout<< jugadores->toString();
+		
 
 }
 

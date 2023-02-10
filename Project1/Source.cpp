@@ -12,9 +12,17 @@ int main() {
 	//c->toString();
 	//cout<< c->stringToInt(c->getValor());
 
-	//Mazo* d = new Mazo();
-	//d->inicializar();
-	//d->barajar();
+	////Mazo* k = new Mazo();
+	////k->inicializar();
+	////k->barajar();
+	////Mano* d = new Mano();
+	////JugadorGenerico* g = new Jugador("Luis", d);
+	////Lista l;
+	////l.insertarFinal(g);
+	////d->agregarCarta(k);
+	////d->agregarCarta(k);
+	////cout<< d->getPuntos();
+	////cout<< l.toString();
 	//cout << d->toString();
 	//system("PAUSE");
 	//system("CLS");
@@ -40,6 +48,7 @@ int main() {
 	//system("CLS");
 	//a.limpiar();
 	//cout<< a.toString();
+	
 	int op, opcion; 
 	bool error = false;
 	bool validar, otraVez;
