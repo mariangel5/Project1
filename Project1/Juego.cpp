@@ -12,8 +12,8 @@ void Juego::juegoNuevo() {
 	string nomb;
 	
 
-	do {
-		cout << "Digite la cantidad de jugadores (Minimo 1 y Maximo 7): ";
+	do { //Se hace un ciclo que pregunte al usuario el numero de jugadores a participar
+		cout << "Digite la cantidad de jugadores (Minimo 1 y Maximo 7): "; 
 		cin >> numJug;
 		system("CLS");
 		if (cin.fail()) { //Comprueba si hay fallos cuando se digita un valor no valido y vuelve a preguntar por el dato
@@ -22,29 +22,25 @@ void Juego::juegoNuevo() {
 			cin.clear();
 			cin.ignore();
 		}
-	} while (numJug > 7 || 0 >= numJug);
+	} while (numJug > 7 || 0 >= numJug); //Valida que no sean mas de 7 y menos de 1
 	
 		mazo->inicializar();
 		mazo->barajar();
 
-	for (int i = 0; i < numJug; i++) {
+	for (int i = 0; i < numJug; i++) { 
 		cout << "=======JUGADOR "<< i + 1 << "======= "  << endl;
-		cout<< "Digite su nickname: ";
+		cout<< "Digite su nickname: "; //Le pregunta el nickname a cada jugador
 		cin >> nomb;
 		Mano* manJ = new Mano();
 		JugadorGenerico* j1 = new Jugador(nomb, manJ);
 		jugadores->insertarFinal(j1);
-		system("CLS");
-		manJ->agregarCarta(mazo);
+		manJ->agregarCarta(mazo); //Agrega las dos cartas necesarias al jugador
 		manJ->agregarCarta(mazo);
 	}
-	manoD->agregarCarta(mazo);
-	manoD->agregarCarta(mazo);
-	dealer->volteaSegunda();
 
-	system("PAUSE");
-	cout<< jugadores->toString();
-		
-
+	manoD->agregarCarta(mazo);
+	manoD->agregarCarta(mazo); //Agrega las cartas al dealer
+	dealer->getMano()->getCarta(1)->voltear(); // Le da vuelta a una de las cartas para que no se muestre su valor
+	cout<< dealer->toString();
 }
 

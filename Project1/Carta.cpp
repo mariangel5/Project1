@@ -38,14 +38,15 @@ bool Carta::getBocaAbajo() {
 }
 
 void Carta::voltear() { //Si la carta esta boca abajo le da vuelta para mostrar los valores de la carta
-	if (bocaAbajo = true) {
-		bocaAbajo = false;
+	if (bocaAbajo == 0) {
+		setBocaAbajo(1);
 	}
+	else setBocaAbajo(0);
 }
 
 string Carta::toString() {
 	stringstream s;
-	if (bocaAbajo == true) { 
+	if (bocaAbajo == 1) { 
 		s << "-------------- " << endl;
 		s << endl;
 		s << endl;

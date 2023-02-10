@@ -8,8 +8,11 @@
 
 int main() {
 
-	//Carta* c = new Carta("A", "Cora");
-	//c->toString();
+	//Carta* c = new Carta("A", "Corazones");
+	//cout<< c->toString();
+
+	//c->voltear();
+	//cout << c->toString();
 	//cout<< c->stringToInt(c->getValor());
 
 	////Mazo* k = new Mazo();

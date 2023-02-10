@@ -12,6 +12,8 @@ public:
 	string toString();
 	bool buscarA();
 	void agregarCarta(Carta*);
+	Carta* getCarta(int);
+	
 
 private:
 	Carta** cartas;
