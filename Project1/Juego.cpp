@@ -52,6 +52,7 @@ void Juego::iniciaNuevoJuego() {
 }
 
 void Juego::iniciarPartidas(Mazo* mazo, Lista* lis, Dealer* dea) {
+	char opc;
 	bool otraCarta = false;
 	int cantJugadores = lis->cuentaNodos();
 	if (otraCarta == false) {
@@ -71,31 +72,36 @@ void Juego::iniciarPartidas(Mazo* mazo, Lista* lis, Dealer* dea) {
 			cout << "\n" << lis->getJugador(i)->toString() << endl;
 			cout << "Los puntos obtenidos son: " << lis->getJugador(i)->getMano()->getPuntos() << endl;
 			system("PAUSE");
+			system("CLS");
+
 			if (lis->getJugador(i)->getMano()->getPuntos() > 21) {
-				cout << "--HAS PERDIDO--" << endl;
+				cout << "HAS PERDIDO... " << endl;
+				cout << "Mas suerte la proxima!" << endl;
 				lis->borrarJug(i);
-				system("PAUSE");
+				opc = 'P';
+			}
+			else {
+				do {
+				menuJuego();
+				cin >> opc;
+				} while (opc != 'D' && opc != 'P' && opc != 'G' && opc != 'S'); //Comprueba que solo se pueda ingresar las letras del menu
+				switch (opc) {
+				case 'D': {
+					lis->getJugador(i)->getMano()->agregarCarta(mazo);
+					break;
+				}
+				default:
+					cout << "Opcion no valida";
+					break;
+				}
 			}
 		}
 	}
 }
 
 void Juego::menuJuego() {
-	char opc;
-	do {
 		std::cout << "\t----------------------------------------\n";
 		std::cout << "\t        M E N U  J U G A D O R         \n";
 		std::cout << "\t----------------------------------------\n" << endl;
 		cout << " (D)eme carta - (P)asar - (G)uardar Partida - (S)alir" << endl;
-		cin >> opc;
-	} while (opc != 'D' && opc != 'P' && opc != 'G' && opc != 'S');
-	switch (opc) {
-		case 'D': {
-			cout << "Good";
-			break;
-		}
-		default:
-			cout << "Opcion no valida";
-			break;
-	}
 }
