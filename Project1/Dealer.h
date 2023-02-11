@@ -7,7 +7,7 @@ class Dealer: public JugadorGenerico {
 public:
 	Dealer(string, Mano*);
 	~Dealer();
-	Carta* pedirCarta();
+	void pedirCarta(int, Mazo*);
 	void volteaSegunda();
 	string toString();
 };
