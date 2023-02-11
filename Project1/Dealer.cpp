@@ -7,9 +7,15 @@ Dealer::Dealer(string nickname, Mano* mano) {
 Dealer::~Dealer() {
 
 }
-
+//Carta* Dealer::pedirCarta() {
+//
+//}
 void Dealer::volteaSegunda() {
-
+	if (mano->getCarta(1) != nullptr) {
+		if (mano->getCarta(1)->getBocaAbajo() == 1) {
+			mano->getCarta(1)->setBocaAbajo(0);
+		}
+	}
 }
 
 string Dealer::toString() {
