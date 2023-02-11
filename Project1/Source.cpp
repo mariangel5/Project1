@@ -84,7 +84,7 @@ int main() {
 		std::cout << "----------------------------------------\n";
 		system("pause");
 		Juego g;
-		g.juegoNuevo();
+		g.iniciaNuevoJuego();
 		break; 
 	case 2: 
 		std::cout << "----------------------------------------\n";

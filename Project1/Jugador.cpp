@@ -18,8 +18,8 @@ void Jugador::pedirCarta(int num,Mazo* ca) {
 
 string Jugador::toString() {
 	stringstream s; 
-	s << "============Datos de Jugador============" << endl;
-	s << "-Nickname: " << nickname << endl;
-	s << "-Mano: " << endl << mano->toString() << endl;
+	s << "============ " << nickname << " ============" << endl;
+	//s << "-Mano: " << endl 
+	s << "\n" << mano->toString() << endl;
 	return s.str();
 }

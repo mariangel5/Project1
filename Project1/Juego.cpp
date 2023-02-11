@@ -1,6 +1,6 @@
 #include "Juego.h"
 
-void Juego::juegoNuevo() {
+void Juego::iniciaNuevoJuego() {
 	system("CLS");
 	bool sePuede = true;
 	bool turno = true;
@@ -36,11 +36,32 @@ void Juego::juegoNuevo() {
 		jugadores->insertarFinal(j1);
 		manJ->agregarCarta(mazo); //Agrega las dos cartas necesarias al jugador
 		manJ->agregarCarta(mazo);
+		system("CLS");
 	}
 
 	manoD->agregarCarta(mazo);
 	manoD->agregarCarta(mazo); //Agrega las cartas al dealer
 	dealer->getMano()->getCarta(1)->voltear(); // Le da vuelta a una de las cartas para que no se muestre su valor
-	cout<< dealer->toString();
+	
+	iniciarPartidas(mazo, jugadores, dealer);
+
+
 }
 
+void Juego::iniciarPartidas(Mazo* mazo, Lista* lis, Dealer* dea) {
+	bool otraCarta = false;
+	int cantJugadores = lis->cuentaNodos();
+	if (otraCarta == false) {
+		for (int i = 0; i < cantJugadores; i++) {
+			if (cantJugadores == 0) {
+				cout << "No es posible iniciar el juego";
+				break;
+
+			}
+			else {
+				cout << lis->toString() << endl << endl;
+				cout << dea->toString() << endl;
+			}
+		}
+	}
+}
