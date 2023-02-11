@@ -1,4 +1,5 @@
 #include "Jugador.h"
+#include "Mano.h"
 
 Jugador::Jugador(string nickname, Mano* mano) {
 	this->nickname = nickname;
@@ -7,9 +8,13 @@ Jugador::Jugador(string nickname, Mano* mano) {
 Jugador::~Jugador() {
 
 }
-//Carta* Jugador::pedirCarta() {
-//
-//}
+void Jugador::pedirCarta(int num,Mazo* ca) {
+	if (num == 1) {
+		mano->agregarCarta(ca);
+		cout << "La carta se ha añadido a su mano";
+	}else 
+		cout << "No se añade ninguna carta a su mano";
+}
 
 string Jugador::toString() {
 	stringstream s; 

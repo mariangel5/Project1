@@ -9,7 +9,7 @@ public:
 
 	Jugador(string, Mano*);
 	~Jugador();
-	//Carta* pedirCarta();
+	void pedirCarta(int, Mazo*);
 	string toString();
 };
 #endif
