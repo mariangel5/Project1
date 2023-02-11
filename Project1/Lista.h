@@ -7,9 +7,9 @@ public:
 	~Lista();
 	Nodo* getInicio();
 	void insertar(Nodo);
-	/*bool borrarJugad(string); *///recibe el nombre del jugador que se quiere borrar
+	bool borrarJug(int); //recibe el nombre del jugador que se quiere borrar
 	string toString();
-	bool listaVacia();
+	bool listaVacia(); 
 	int cuentaNodos();
 	void insertarFinal(JugadorGenerico*);
 	JugadorGenerico* getJugador(int);

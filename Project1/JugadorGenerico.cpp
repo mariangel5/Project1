@@ -36,3 +36,11 @@ int JugadorGenerico::getNumJug() {
 	return numJug;
 }
 
+void JugadorGenerico::pedirCarta(int num, Mazo* ca) {
+	if (num == 1) {
+		mano->agregarCarta(ca);
+		cout << "La carta se ha añadido a su mano";
+	}
+	else
+		cout << "No se añade ninguna carta a su mano";
+}

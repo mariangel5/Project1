@@ -8,7 +8,6 @@ class Jugador: public JugadorGenerico {
 public:
 	Jugador(string, Mano*);
 	~Jugador();
-	void pedirCarta(int, Mazo*);
 	string toString();
 };
 #endif

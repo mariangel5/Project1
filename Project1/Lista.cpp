@@ -58,7 +58,28 @@ void Lista::insertarFinal(JugadorGenerico* j) {//inserta un jugador al final de 
 	}
 }
 
-//metodo borrar Jugador
+bool Lista::borrarJug(int num) {
+		Nodo* aux = inicio;
+		Nodo* anterior = nullptr;
+		if (aux != nullptr && aux->dato->getNumJug() == num) {
+			Nodo* actual = inicio;
+			if (aux != nullptr) {
+				inicio = actual->next;
+				delete actual;
+				return true;
+			}
+		}
+		else if (aux != nullptr) {
+			while (aux != nullptr && aux->dato->getNumJug() != num) {
+				anterior = aux;
+				aux = aux->next;
+			}
+			anterior->setNext(aux->next);
+			delete aux;
+			return true;
+		}
+		return false;
+}
 
 bool Lista::listaVacia() {
 	return inicio == nullptr;
@@ -86,5 +107,12 @@ string Lista::toString() {
 }
 
 JugadorGenerico* Lista::getJugador(int num) {
-
+	Nodo* aux = inicio;
+	while (aux != nullptr) {
+		if (aux->dato->getNumJug() == num) {
+			return aux->dato;
+		}
+		aux = aux->next;
+	}
+	return nullptr;
 }

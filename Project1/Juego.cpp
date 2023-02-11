@@ -34,7 +34,7 @@ void Juego::iniciaNuevoJuego() {
 		cin >> nomb;
 		Mano* manJ = new Mano();
 		JugadorGenerico* j1 = new Jugador(nomb, manJ);
-		j1->setNumJug(num+1);
+		j1->setNumJug(num);
 		num++;
 		jugadores->insertarFinal(j1);
 		manJ->agregarCarta(mazo);			//Agrega las dos cartas necesarias al jugador
@@ -66,8 +66,14 @@ void Juego::iniciarPartidas(Mazo* mazo, Lista* lis, Dealer* dea) {
 				cout << dea->toString() << endl;
 				system("PAUSE");
 				system("CLS");
-
-				cout << "Turno del jugador ";
+			}
+			cout << "--Turno del jugador numero " << lis->getJugador(i)->getNumJug() << "--" << endl;
+			cout << "\n" << lis->getJugador(i)->toString() << endl;
+			cout << "Los puntos obtenidos son: " << lis->getJugador(i)->getMano()->getPuntos() << endl;
+			system("PAUSE");
+			if (lis->getJugador(i)->getMano()->getPuntos() > 21) {
+				cout << "--HAS PERDIDO--" << endl;
+				system("PAUSE");
 			}
 		}
 	}
