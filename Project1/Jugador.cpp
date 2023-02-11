@@ -1,4 +1,5 @@
 #include "Jugador.h"
+#include "Mano.h"
 
 Jugador::Jugador(string nickname, Mano* mano) {
 	this->nickname = nickname;
@@ -8,7 +9,6 @@ Jugador::Jugador(string nickname, Mano* mano) {
 Jugador::~Jugador() {
 
 }
-
 //Carta* Jugador::pedirCarta() {
 //
 //}

@@ -24,7 +24,7 @@ public:
 	string  getNickname();
 	void setMano(Mano*);
 	Mano*  getMano();
-	//virtual Carta* pedirCarta() = 0;
+	virtual void pedirCarta() = 0;
 	/*bool sePaso();*/
 	virtual string toString() =0;
 
