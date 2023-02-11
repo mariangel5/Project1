@@ -73,6 +73,7 @@ void Juego::iniciarPartidas(Mazo* mazo, Lista* lis, Dealer* dea) {
 			system("PAUSE");
 			if (lis->getJugador(i)->getMano()->getPuntos() > 21) {
 				cout << "--HAS PERDIDO--" << endl;
+				lis->borrarJug(i);
 				system("PAUSE");
 			}
 		}

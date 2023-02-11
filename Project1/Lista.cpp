@@ -74,7 +74,7 @@ bool Lista::borrarJug(int num) {
 				anterior = aux;
 				aux = aux->next;
 			}
-			anterior->setNext(aux->next);
+			anterior->setNext(aux->getNext());
 			delete aux;
 			return true;
 		}
