@@ -12,9 +12,12 @@ class JugadorGenerico
 protected:
 	string nickname;
 	Mano* mano;
+	int numJug;
 
 public:
 	JugadorGenerico();
+	void setNumJug(int);
+	int getNumJug();
 	JugadorGenerico(string, Mano*);
 	virtual ~JugadorGenerico();
 	void setNickname(string);

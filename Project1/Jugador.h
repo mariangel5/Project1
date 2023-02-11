@@ -6,7 +6,6 @@
 class Jugador: public JugadorGenerico {
 
 public:
-
 	Jugador(string, Mano*);
 	~Jugador();
 	//Carta* pedirCarta();

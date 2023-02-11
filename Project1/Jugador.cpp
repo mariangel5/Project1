@@ -3,10 +3,12 @@
 Jugador::Jugador(string nickname, Mano* mano) {
 	this->nickname = nickname;
 	this->mano = mano;
+	numJug = 0;
 }
 Jugador::~Jugador() {
 
 }
+
 //Carta* Jugador::pedirCarta() {
 //
 //}

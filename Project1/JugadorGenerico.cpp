@@ -28,3 +28,11 @@ Mano* JugadorGenerico::getMano() {
 	return mano;
 }
 
+void JugadorGenerico::setNumJug(int num) {
+	numJug = num;
+}
+
+int JugadorGenerico::getNumJug() {
+	return numJug;
+}
+

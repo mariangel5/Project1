@@ -8,5 +8,6 @@ class Juego
 public:
 	static void iniciaNuevoJuego();
 	static void iniciarPartidas(Mazo*, Lista*, Dealer*);
+	static void menuJuego();
 };
 

@@ -84,3 +84,7 @@ string Lista::toString() {
 	}
 	return s.str();
 }
+
+JugadorGenerico* Lista::getJugador(int num) {
+
+}
