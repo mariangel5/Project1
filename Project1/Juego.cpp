@@ -9,17 +9,21 @@ void Juego::iniciaNuevoJuego() {
 	int numJug = 0;
 	string nomb;
 	int num = 0;
+	bool error;
 	
 
-	do {										//Se hace un ciclo que pregunte al usuario el numero de jugadores a participar
+	do {//Se hace un ciclo que pregunte al usuario el numero de jugadores a participar
+		error = false; 
 		cout << "Digite la cantidad de jugadores (Minimo 1 - Maximo 7): "; cin >> numJug;
 		cout << endl << endl;
-		if (cin.fail()) {						//Comprueba si hay fallos cuando se digita un valor no valido y vuelve a preguntar por el dato
-			cout << "--Digite una cantidad valida--" << endl << endl;
+		if ((numJug > 7) || (0 >= numJug) || (cin.fail())) {//Comprueba si hay fallos cuando se digita un valor no valido y vuelve a preguntar por el dato
+			system("CLS");
 			cin.clear();
-			cin.ignore();
+			cin.ignore(50, '\n');
+			error = true; 
+			cout << "--Digite una cantidad valida--" << endl << endl;
 		}
-	} while (numJug > 7 || 0 >= numJug);		//Valida que no sean mas de 7 y menos de 1
+	} while (error);
 	
 		mazo->inicializar();
 		mazo->barajar();
@@ -55,56 +59,59 @@ void Juego::iniciarPartidas(Mazo* mazo, Lista* lis, Dealer* dea) {
 	char opc;
 	bool partidaOn = true; 
 	bool endTurno;
-	static int cant = lis->cuentaNodos();
-	for (int i = 0; i < cant; i++) {
-		endTurno = false;
-		if (cant == 0) { //Comprueba que hayan jugadores 
-			cout << "No es posible iniciar el juego";
-			break;
-		}
-		else {
-			while (endTurno == false && partidaOn == true) { 
-				cout << "--Turno del Jugador Numero " << lis->getJugador(i)->getNumJug() << "--" << endl;
-				cout << "\n" << lis->getJugador(i)->toString() << endl;
-				cout << "Los puntos obtenidos son: " << lis->getJugador(i)->getMano()->getPuntos() << endl;
-				system("PAUSE");
-				system("CLS");
-
-				if (lis->getJugador(i)->getMano()->getPuntos() > 21) { //Comprueba que no se pase de 21
-					cout << "HAS PERDIDO... " << endl;
-					cout << "Mas suerte la proxima!" << endl;
-					lis->borrarJug(i); //El jugador es eliminado de la lista si se pasa
+	if (partidaOn == true) {
+		for (int i = 0; i < cantJugadores; i++) {
+			endTurno = false;
+			if (cantJugadores == 0) {
+				cout << "No es posible iniciar el juego";
+				break;
+			}
+			else {
+				while (endTurno == false) {
+					cout << "--Turno del jugador numero " << lis->getJugador(i)->getNumJug() << "--" << endl;
+					cout << "\n" << lis->getJugador(i)->toString() << endl;
+					cout << "Los puntos obtenidos son: " << lis->getJugador(i)->getMano()->getPuntos() << endl;
 					system("PAUSE");
-					opc = 'P';
-				}
-				else {
-					do {
-						menuJuego();
-						cin >> opc;
-						system("CLS");
-					} while (opc != 'D' && opc != 'P' && opc != 'G' && opc != 'S'); //Comprueba que solo se pueda ingresar las letras del menu
-
-				}switch (opc) {
-				case 'D': {
-					lis->getJugador(i)->pedirCarta(mazo); //Añade una carta extra a la mano
-					break;
-				}
-				case 'P': {
-					cout << "Siguiente Jugador..." << endl;
-					Sleep(600);
-					endTurno = true; //Termina el turno del jugador
 					system("CLS");
-					break;
-				}
-				case 'G': {
-					break;
-				}
-				case 'S': {
-					cout << "El juego ha terminado..." << endl << endl;
-					partidaOn = false; //Termina la partida y el turno
-					endTurno = true; 
-					break;
-				}
+
+					if (lis->getJugador(i)->getMano()->getPuntos() > 21) {
+						cout << "HAS PERDIDO... " << endl;
+						cout << "Mas suerte la proxima!" << endl;
+						lis->borrarJug(i);
+						system("PAUSE");
+						opc = 'P';
+					}
+					else {
+						do {
+							menuJuego();
+							cin >> opc;
+							system("CLS");
+						} while (opc != 'D' && opc != 'P' && opc != 'G' && opc != 'S'); //Comprueba que solo se pueda ingresar las letras del menu
+
+					}switch (opc) {
+					case 'D': {
+						lis->getJugador(i)->pedirCarta(mazo);
+						break;
+					}
+					case 'P': {
+						cout << "Siguiente jugador..." << endl;
+						Sleep(600);
+						endTurno = true;
+						break;
+					}
+					case 'G': {		
+						break;
+					}
+					case 'S': {
+						cout << "El juego ha terminado..." << endl << endl;
+						partidaOn = false;
+						endTurno = true;
+						break;
+					}
+					default:
+						cout << "Opcion no valida";
+						break;
+					}
 				}
 			}
 		}
