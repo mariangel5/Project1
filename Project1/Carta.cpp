@@ -37,7 +37,7 @@ bool Carta::getBocaAbajo() {
 	return bocaAbajo;
 }
 
-void Carta::voltear() { //Si la carta esta boca abajo le da vuelta para mostrar los valores de la carta
+void Carta::voltear() { //Voltea la carta que este boca abajo
 	if (bocaAbajo == 0) {
 		setBocaAbajo(1);
 	}
@@ -71,7 +71,7 @@ string Carta::toString() {
 	return s.str();
 }
 
-int Carta::stringToInt(string v) {
+int Carta::stringToInt(string v) { //Convierte los valores de la carta a Int
 	int x = 0;
 	if (v == "A") { return x = 1; }
 	else if (v == "1") { return x = 1; }

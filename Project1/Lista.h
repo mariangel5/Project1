@@ -13,8 +13,8 @@ public:
 	int cuentaNodos();
 	void insertarFinal(JugadorGenerico*);
 	JugadorGenerico* getJugador(int);
-	/*JugadorGenerico* getGanador(int); */
-	bool buscarJugador(int); 
+	void mostrarResultados();
+
 private:
 	Nodo* inicio;
 	

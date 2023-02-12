@@ -5,6 +5,8 @@
 #include <sstream>
 #include <string>
 #include "Mano.h"
+#include <Windows.h>
+
 using namespace std;
 
 class JugadorGenerico
@@ -13,6 +15,7 @@ protected:
 	string nickname;
 	Mano* mano;
 	int numJug;
+	string estado;
 
 public:
 	JugadorGenerico();
@@ -25,8 +28,9 @@ public:
 	void setMano(Mano*);
 	Mano*  getMano();
 	void pedirCarta(Mazo*);
-	/*bool sePaso();*/
 	virtual string toString() = 0;
+	string getEstado();
+	void setEstado(string);
 
 };
 

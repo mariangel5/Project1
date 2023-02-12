@@ -9,10 +9,8 @@ Dealer::~Dealer() {
 }
 
 void Dealer::volteaSegunda() {
-	if (mano->getCarta(1) != nullptr) {
-		if (mano->getCarta(1)->getBocaAbajo() == 1) {
+	if (mano->getCarta(1) != nullptr && mano->getCarta(1)->getBocaAbajo() == 1) {
 			mano->getCarta(1)->setBocaAbajo(0);
-		}
 	}
 }
 

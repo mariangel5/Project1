@@ -36,7 +36,16 @@ int JugadorGenerico::getNumJug() {
 	return numJug;
 }
 
+void JugadorGenerico::setEstado(string es) {
+	estado = es;
+}
+
+string JugadorGenerico::getEstado() {
+	return estado;
+}
+
 void JugadorGenerico::pedirCarta(Mazo* ca) {
 		mano->agregarCarta(ca);
-		cout << "La carta se ha añadido a su mano" << endl;
+		cout << "La carta se ha agregado a su mano..." << endl << endl;
+		Sleep(400);
 }

@@ -21,17 +21,6 @@ Lista::~Lista() {
 }
 
 
-
-/*Lista::~Lista() { //otro constructor que pude servir 
-	Nodo* temp = inicio;
-	while (temp != NULL) {
-		inicio = temp->getSiguiente();
-		delete temp;
-		temp = inicio;
-	}
-	inicio = NULL;
-}*/
-
 void Lista::insertar(Nodo j) {
 	Nodo* nuevo;
 	nuevo = new Nodo{ j };
@@ -106,8 +95,8 @@ string Lista::toString() {
 	return s.str();
 }
 
-JugadorGenerico* Lista::getJugador(int num) {
-	Nodo* aux = inicio;
+JugadorGenerico* Lista::getJugador(int num) { //Devuelve el jugador de acuerdo a su numero asignado a la hora de creacion
+	Nodo* aux = inicio; 
 	while (aux != nullptr) {
 		if (aux->dato->getNumJug() == num) {
 			return aux->dato;
@@ -118,15 +107,24 @@ JugadorGenerico* Lista::getJugador(int num) {
 }
 
 
-bool Lista::buscarJugador(int num) {
-	Nodo* aux = inicio;
-	while (aux != nullptr) {
-		if (aux->getJugador()->getNumJug() == num) {
-			return true;
+void Lista::mostrarResultados() { //Muestra el nombre de los jugadores con su estado del juego
+	Nodo* actual = inicio; 
+	cout << "============== R E S U L T A D O S ==============" << endl << endl;
+	while (actual != nullptr) {
+		if (actual->dato->getEstado() == "Ganador") {
+			cout << "Ganador: ";
+			cout << actual->dato->getNickname() << endl << endl;
+			actual = actual->getNext();
+		}
+		else if (actual->dato->getEstado() == "Perdedor") {
+			cout << "Perdedor: ";
+			cout << actual->getJugador()->getNickname() << endl << endl;
+			actual = actual->getNext();
 		}
 		else {
-			aux = aux->getNext();
+			cout << "Empate: ";
+			cout << actual->getJugador()->getNickname() << endl << endl;
+			actual = actual->getNext();
 		}
 	}
-	return false;
 }

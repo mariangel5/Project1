@@ -18,32 +18,51 @@ int main() {
 	//cout << c->toString();
 	//cout<< c->stringToInt(c->getValor());
 
-	//Mazo* k = new Mazo();
-	//k->inicializar();
-	//k->barajar();
-	//Mano* d = new Mano();
-	//Mano* b = new Mano();
-	//Mano* c = new Mano();
-	//JugadorGenerico* jug = new Jugador("Luis", d);
-	//JugadorGenerico* jug2 = new Jugador("pedro", b);
-	//JugadorGenerico* jug3 = new Jugador("maria", c);
-	//d->agregarCarta(k);
-	//d->agregarCarta(k);
-	//b->agregarCarta(k);
-	//b->agregarCarta(k);
-	//c->agregarCarta(k);
-	//c->agregarCarta(k);
-	//jug->setNumJug(0);
-	//jug2->setNumJug(1);
-	//jug3->setNumJug(2);
-	//Lista l;
-	//l.insertarFinal(jug);
-	//l.insertarFinal(jug2);
-	//l.insertarFinal(jug3);
+	/*Mazo* k = new Mazo();
+	k->inicializar();
+	k->barajar();
+	Mano* d = new Mano();
+	Mano* b = new Mano();
+	Mano* c = new Mano();
+	JugadorGenerico* jug = new Jugador("Luis", d);
+	JugadorGenerico* jug2 = new Jugador("pedro", b);
+	JugadorGenerico* jug3 = new Jugador("maria", c);
+	JugadorGenerico* jug4 = new Jugador("dag", d);
+	JugadorGenerico* jug5 = new Jugador("sgd", b);
+	JugadorGenerico* jug6 = new Jugador("gkal", c);
+	d->agregarCarta(k);
+	d->agregarCarta(k);
+	b->agregarCarta(k);
+	b->agregarCarta(k);
+	c->agregarCarta(k);
+	c->agregarCarta(k);
+	jug->setNumJug(0);
+	jug2->setNumJug(1);
+	jug3->setNumJug(2);
+	jug4->setNumJug(3);
+	jug5->setNumJug(4);
+	jug6->setNumJug(5);
+	Lista l;
+	l.insertarFinal(jug);
+	l.insertarFinal(jug2);
+	l.insertarFinal(jug3);
+	l.insertarFinal(jug4);
+	l.insertarFinal(jug5);
+	l.insertarFinal(jug6);
+	cout<< l.toString();
+	system("PAUSE");
+	system("CLS");
+
+	jug->setEstado("Ganador");
+	jug2->setEstado("Perdedor");
+	jug3->setEstado("Empate");
+	jug4->setEstado("Ganador");
+	jug5->setEstado("Perdedor");
+	jug6->setEstado("Empate");
+
+	l.mostrarResultados();*/
+
 	//l.getJugador(0)->pedirCarta(k);
-	//cout<< l.toString();
-	//system("PAUSE");
-	//system("CLS");
 	//l.borrarJug(1);
 	//cout << l.toString();
 
@@ -63,12 +82,19 @@ int main() {
 	//g.juegoNuevo();
 
 
-	//Mano a;
-	//a.agregarCarta(d);
-	//a.agregarCarta(d->getCarta("6", "Treboles"));
-	//a.agregarCarta(d->getCarta("6", "Corazones"));
-	//a.agregarCarta(d->getCarta("2", "Diamantes"));
-	//a.agregarCarta(d->getCarta("A", "Diamantes"));
+	//Mazo* d = new Mazo();
+	//d->inicializar();
+	//d->barajar();
+	//Mano* a = new Mano();
+	////a->agregarCarta(d);
+	//a->agregarCarta(d->getCarta("6", "Treboles"));
+	//a->agregarCarta(d->getCarta("A", "Diamantes"));
+	//Dealer* de = new Dealer("Dealer", a);
+	//de->getMano()->getCarta(1)->voltear();
+	//cout << de->toString() << endl << endl;
+	//de->volteaSegunda();
+	//cout << de->toString() << endl << endl;
+
 	//cout << a.toString();
 	//cout<< a.getPuntos();
 //	cout << a.buscarA();
