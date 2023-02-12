@@ -116,3 +116,17 @@ JugadorGenerico* Lista::getJugador(int num) {
 	}
 	return nullptr;
 }
+
+
+bool Lista::buscarJugador(int num) {
+	Nodo* aux = inicio;
+	while (aux != nullptr) {
+		if (aux->getJugador()->getNumJug() == num) {
+			return true;
+		}
+		else {
+			aux = aux->getNext();
+		}
+	}
+	return false;
+}

@@ -1,5 +1,6 @@
 #include "Mano.h"
 #include "Lista.h"
+#include  <Windows.h>
 //#include <cctype>
 
 #pragma once
