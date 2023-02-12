@@ -48,26 +48,27 @@ void Lista::insertarFinal(JugadorGenerico* j) {//inserta un jugador al final de 
 }
 
 bool Lista::borrarJug(int num) {
-		Nodo* aux = inicio;
-		Nodo* anterior = nullptr;
-		if (aux != nullptr && aux->dato->getNumJug() == num) {
-			Nodo* actual = inicio;
-			if (aux != nullptr) {
-				inicio = actual->next;
-				delete actual;
-				return true;
-			}
-		}
-		else if (aux != nullptr) {
-			while (aux != nullptr && aux->dato->getNumJug() != num) {
-				anterior = aux;
-				aux = aux->next;
-			}
-			anterior->setNext(aux->getNext());
-			delete aux;
+	Nodo* aux = inicio;
+	Nodo* anterior = nullptr;
+	if (aux != nullptr && aux->dato->getNumJug() == num) {
+		Nodo* actual = inicio;
+		num = inicio->dato->getNumJug();
+		if (aux != nullptr) {
+			inicio = actual->next;
+			delete actual;
 			return true;
 		}
-		return false;
+	}
+	else if (aux != nullptr) {
+		while (aux != nullptr && aux->dato->getNumJug() != num) {
+			anterior = aux;
+			aux = aux->next;
+		}
+		anterior->setNext(aux->getNext());
+		delete aux;
+		return true;
+	}
+	return false;
 }
 
 bool Lista::listaVacia() {
@@ -114,17 +115,32 @@ void Lista::mostrarResultados() { //Muestra el nombre de los jugadores con su es
 		if (actual->dato->getEstado() == "Ganador") {
 			cout << "Ganador: ";
 			cout << actual->dato->getNickname() << endl << endl;
+			cout << actual->dato->getMano()->toString() << endl;
 			actual = actual->getNext();
 		}
 		else if (actual->dato->getEstado() == "Perdedor") {
 			cout << "Perdedor: ";
 			cout << actual->getJugador()->getNickname() << endl << endl;
+			cout << actual->dato->getMano()->toString() << endl;
 			actual = actual->getNext();
 		}
 		else {
 			cout << "Empate: ";
 			cout << actual->getJugador()->getNickname() << endl << endl;
+			cout << actual->dato->getMano()->toString() << endl;
 			actual = actual->getNext();
 		}
+	}
+}
+
+void Lista::mostrarGanadores() {
+	Nodo* actual = inicio;
+	while (actual != nullptr) {
+		if (actual->dato->getMano()->getPuntos() <= 21) {
+			cout << "Ganador: ";
+			cout << actual->dato->getNickname() << endl << endl;
+			cout << actual->dato->getMano()->toString() << endl;
+		}
+		actual = actual->getNext();
 	}
 }

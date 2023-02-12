@@ -68,7 +68,7 @@ void Juego::iniciarPartidas(Mazo* mazo, Lista* lis, Dealer* dea) {
 				break;
 			}
 			else {
-				while (endTurno == false) {
+				while (endTurno == false && partidaOn == true) {
 					cout << "--Turno del jugador numero " << lis->getJugador(i)->getNumJug() << "--" << endl;
 					cout << "\n" << lis->getJugador(i)->toString() << endl;
 					cout << "Los puntos obtenidos son: " << lis->getJugador(i)->getMano()->getPuntos() << endl;
@@ -78,8 +78,9 @@ void Juego::iniciarPartidas(Mazo* mazo, Lista* lis, Dealer* dea) {
 					if (lis->getJugador(i)->getMano()->getPuntos() > 21) {
 						cout << "HAS PERDIDO... " << endl;
 						cout << "Mas suerte la proxima!" << endl;
-						lis->borrarJug(i);
+						lis->getJugador(i)->setEstado("Perdedor");
 						system("PAUSE");
+						system("CLS");
 						opc = 'P';
 					}
 					else {
@@ -104,7 +105,9 @@ void Juego::iniciarPartidas(Mazo* mazo, Lista* lis, Dealer* dea) {
 						break;
 					}
 					case 'S': {
-						cout << "El juego ha terminado..." << endl << endl;
+						std::cout << "----------------------------------------\n";
+						std::cout << "          El juego ha terminado         \n";
+						std::cout << "----------------------------------------\n";
 						partidaOn = false;
 						endTurno = true;
 						break;
@@ -128,6 +131,7 @@ void Juego::menuJuego() {
 }
 
 void Juego::comprobarGanador(bool part, Mazo* ma, Lista* li, Dealer* de) {
+	static int cant = li->cuentaNodos();
 	if (part == true) { //Comprueba que no se haya terminado el juego
 		cout << "\t--Turno del Dealer--" << endl;
 		de->volteaSegunda(); 
@@ -149,13 +153,12 @@ void Juego::comprobarGanador(bool part, Mazo* ma, Lista* li, Dealer* de) {
 				system("PAUSE");
 			}
 			if (de->getMano()->getPuntos() <= 21) { //En caso de que el dealer no se pase de 21 se comparara con cada jugador
-				for (int i = 0; i < li->cuentaNodos(); i++) {
-					if (li->getJugador(i)->getMano()->getPuntos() > de->getMano()->getPuntos()) {
-						li->getJugador(i)->setEstado("Ganador"); // se les asigna el estado
-					}
-					else if (li->getJugador(i)->getMano()->getPuntos() < de->getMano()->getPuntos()) {
+				for (int i = 0; i < cant; i++) {
+					if (li->getJugador(i)->getMano()->getPuntos() < de->getMano()->getPuntos() || li->getJugador(i)->getMano()->getPuntos() > 21) {
 						li->getJugador(i)->setEstado("Perdedor");
-
+					}
+					else if (li->getJugador(i)->getMano()->getPuntos() > de->getMano()->getPuntos()) {
+						li->getJugador(i)->setEstado("Ganador"); // se les asigna el estado
 					}
 					else {
 						li->getJugador(i)->setEstado("Empate");
@@ -167,7 +170,7 @@ void Juego::comprobarGanador(bool part, Mazo* ma, Lista* li, Dealer* de) {
 				system("CLS");
 				cout << "La casa ha perdido..." << endl << endl;
 				cout << "============== G A N A D O R E S ==============" << endl << endl;
-				cout << li->toString() << endl << endl; //muestra todos los jugadores que no se pasaron de 21
+				li->mostrarGanadores(); //muestra todos los jugadores que no se pasaron de 21
 			}
 		}
 	}

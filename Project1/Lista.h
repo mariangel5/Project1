@@ -14,6 +14,7 @@ public:
 	void insertarFinal(JugadorGenerico*);
 	JugadorGenerico* getJugador(int);
 	void mostrarResultados();
+	void mostrarGanadores();
 
 private:
 	Nodo* inicio;
