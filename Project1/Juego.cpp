@@ -59,6 +59,7 @@ void Juego::iniciarPartidas(Mazo* mazo, Lista* lis, Dealer* dea) {
 	char opc;
 	bool partidaOn = true; 
 	bool endTurno;
+	static int cantJugadores = lis->cuentaNodos();
 	if (partidaOn == true) {
 		for (int i = 0; i < cantJugadores; i++) {
 			endTurno = false;
