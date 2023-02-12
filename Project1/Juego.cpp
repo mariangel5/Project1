@@ -9,17 +9,21 @@ void Juego::iniciaNuevoJuego() {
 	int numJug = 0;
 	string nomb;
 	int num = 0;
+	bool error;
 	
 
-	do {										//Se hace un ciclo que pregunte al usuario el numero de jugadores a participar
+	do {//Se hace un ciclo que pregunte al usuario el numero de jugadores a participar
+		error = false; 
 		cout << "Digite la cantidad de jugadores (Minimo 1 - Maximo 7): "; cin >> numJug;
 		cout << endl << endl;
-		if (cin.fail()) {						//Comprueba si hay fallos cuando se digita un valor no valido y vuelve a preguntar por el dato
-			cout << "--Digite una cantidad valida--" << endl << endl;
+		if ((numJug > 7) || (0 >= numJug) || (cin.fail())) {//Comprueba si hay fallos cuando se digita un valor no valido y vuelve a preguntar por el dato
+			system("CLS");
 			cin.clear();
-			cin.ignore();
+			cin.ignore(50, '\n');
+			error = true; 
+			cout << "--Digite una cantidad valida--" << endl << endl;
 		}
-	} while (numJug > 7 || 0 >= numJug);		//Valida que no sean mas de 7 y menos de 1
+	} while (error);
 	
 		mazo->inicializar();
 		mazo->barajar();
@@ -67,7 +71,7 @@ void Juego::iniciarPartidas(Mazo* mazo, Lista* lis, Dealer* dea) {
 			}
 			else {
 				while (endTurno == false) {
-					cout << "--Turno del jugador numero " << lis->getJugador(i)->getNumJug() << "--" << endl;
+					cout << "--*Turno del jugador numero: " << lis->getJugador(i)->getNumJug()+1 << "*--" << endl;
 					cout << "\n" << lis->getJugador(i)->toString() << endl;
 					cout << "Los puntos obtenidos son: " << lis->getJugador(i)->getMano()->getPuntos() << endl;
 					system("PAUSE");
@@ -75,7 +79,7 @@ void Juego::iniciarPartidas(Mazo* mazo, Lista* lis, Dealer* dea) {
 
 					if (lis->getJugador(i)->getMano()->getPuntos() > 21) {
 						cout << "HAS PERDIDO... " << endl;
-						cout << "Mas suerte la proxima!" << endl;
+						cout << "*Mas suerte la proxima*" << endl;
 						lis->borrarJug(i);
 						system("PAUSE");
 						opc = 'P';
@@ -99,10 +103,13 @@ void Juego::iniciarPartidas(Mazo* mazo, Lista* lis, Dealer* dea) {
 						break;
 					}
 					case 'G': {		
+
 						break;
 					}
 					case 'S': {
-						cout << "El juego ha terminado..." << endl << endl;
+						std::cout << "----------------------------------------\n";
+						std::cout << "          El juego ha terminado         \n";
+						std::cout << "----------------------------------------\n";
 						partidaOn = false;
 						endTurno = true;
 						break;
