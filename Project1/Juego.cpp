@@ -12,7 +12,7 @@ void Juego::iniciaNuevoJuego() {
 	
 
 	do {										//Se hace un ciclo que pregunte al usuario el numero de jugadores a participar
-		cout << "Digite la cantidad de jugadores (Minimo 1 y Maximo 7): "; cin >> numJug;
+		cout << "Digite la cantidad de jugadores (Minimo 1 - Maximo 7): "; cin >> numJug;
 		cout << endl << endl;
 		if (cin.fail()) {						//Comprueba si hay fallos cuando se digita un valor no valido y vuelve a preguntar por el dato
 			cout << "--Digite una cantidad valida--" << endl << endl;
@@ -123,4 +123,8 @@ void Juego::menuJuego() {
 		std::cout << "\t        M E N U  J U G A D O R         \n";
 		std::cout << "\t----------------------------------------\n" << endl;
 		cout << " (D)eme carta - (P)asar - (G)uardar Partida - (S)alir" << endl << endl;
+}
+
+void Juego::comprobarGanador(Mazo* ma, Lista* li, Dealer* de) {
+
 }
