@@ -93,7 +93,6 @@ void Juego::iniciarPartidas(Mazo* mazo, Lista* lis, Dealer* dea) {
 						std::cout << "\t                     HAS PERDIDO                   \n";
 						std::cout << "\t                Mas suerte la proxima!             \n" << std::endl;
 						std::cout << "\t---------------------------------------------------\n";
-						lis->getJugador(i)->setEstado("Perdedor");
 						system("PAUSE");
 						system("CLS");
 						opc = 'P';
@@ -153,7 +152,7 @@ void Juego::comprobarGanador(bool part, Mazo* ma, Lista* li, Dealer* de) {
 		std::cout << "\n" << de->toString() << std::endl; // Se muestra la segunda carta del dealer
 		std::cout << "Los puntos obtenidos son : " << de->getMano()->getPuntos() << std::endl;
 		system("PAUSE");
-		system("CLS");
+
 
 		if (li->getInicio() == nullptr) { //En caso de que no quedaran jugadores, la casa gana por default
 			std::cout << "La casa ha ganado ya que no hay jugadores disponibles" << std::endl;
@@ -179,10 +178,13 @@ void Juego::comprobarGanador(bool part, Mazo* ma, Lista* li, Dealer* de) {
 						li->getJugador(i)->setEstado("Empate");
 					}
 				}
+				system("CLS");
+				Sleep(600);
 				li->mostrarResultados(); //mostrara el resultado del juego
 			}
 			else {
 				system("CLS");
+				Sleep(600);
 				std::cout << "La casa ha perdido..." << std::endl << std::endl;
 				std::cout << "============== G A N A D O R E S ==============" << std::endl << std::endl;
 				li->mostrarGanadores(); //muestra todos los jugadores que no se pasaron de 21
