@@ -23,9 +23,9 @@ void Nodo::setNext(Nodo* sig) {
 	next = sig; 
 }
 
-string Nodo::toString() {//imprime la informacion contenida en el nodo
-	stringstream s; //toString Temporal
-	s << dato->toString() << endl;
+std::string Nodo::toString() {//imprime la informacion contenida en el nodo
+	std::stringstream s; //toString Temporal
+	s << dato->toString() << std::endl;
 	return s.str();
 
 }

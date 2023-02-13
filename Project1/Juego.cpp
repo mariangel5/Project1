@@ -7,21 +7,21 @@ void Juego::iniciaNuevoJuego() {
 	Mano* manoD = new Mano();
 	Dealer* dealer = new Dealer("Dealer", manoD);
 	int numJug = 0;
-	string nomb;
+	std::string nomb;
 	int num = 0;
 	bool error;
 	
 
 	do {//Se hace un ciclo que pregunte al usuario el numero de jugadores a participar
 		error = false; 
-		cout << "Digite la cantidad de jugadores (Minimo 1 - Maximo 7): "; cin >> numJug;
-		cout << endl << endl;
-		if ((numJug > 7) || (0 >= numJug) || (cin.fail())) {//Comprueba si hay fallos cuando se digita un valor no valido y vuelve a preguntar por el dato
+		std::cout << "Digite el numero de jugadores (Minimo 1 - Maximo 7): "; std::cin >> numJug;
+		std::cout << std::endl << std::endl;
+		if ((numJug > 7) || (0 >= numJug) || (std::cin.fail())) {//Comprueba si hay fallos cuando se digita un valor no valido y vuelve a preguntar por el dato
 			system("CLS");
-			cin.clear();
-			cin.ignore(50, '\n');
+			std::cin.clear();
+			std::cin.ignore(50, '\n');
 			error = true; 
-			cout << "--Digite una cantidad valida--" << endl << endl;
+			std::cout << "------Digite una cantidad valida------" << std::endl << std::endl;
 		}
 	} while (error);
 	
@@ -29,9 +29,9 @@ void Juego::iniciaNuevoJuego() {
 		mazo->barajar();
 
 	for (int i = 0; i < numJug; i++) { 
-		cout << "=======JUGADOR "<< i + 1 << "======= "  << endl;
-		cout<< "Digite su nickname: ";	cin >> nomb;	//Le pregunta el nickname a cada jugador
-		cout << endl << endl;
+		std::cout << "=======JUGADOR "<< i + 1 << "======= "  << std::endl;
+		std::cout<< "Digite su nickname: ";	std::cin >> nomb;	//Le pregunta el nickname a cada jugador
+		std::cout << std::endl << std::endl;
 		Mano* manJ = new Mano();
 		JugadorGenerico* j1 = new Jugador(nomb, manJ);
 		j1->setNumJug(num);
@@ -47,8 +47,8 @@ void Juego::iniciaNuevoJuego() {
 	manoD->agregarCarta(mazo);					//Agrega las cartas al dealer
 	dealer->getMano()->getCarta(1)->voltear();	// Le da vuelta a una de las cartas para que no se muestre su valor
 	
-	cout << jugadores->toString() << endl << endl;
-	cout << dealer->toString() << endl;
+	std::cout << jugadores->toString() << std::endl << std::endl;
+	std::cout << dealer->toString() << std::endl;
 	system("PAUSE");
 	system("CLS");
 
@@ -64,20 +64,22 @@ void Juego::iniciarPartidas(Mazo* mazo, Lista* lis, Dealer* dea) {
 		for (int i = 0; i < cantJugadores; i++) {
 			endTurno = false;
 			if (cantJugadores == 0) {
-				cout << "No es posible iniciar el juego";
+				std::cout << "\t---------------------------------------------------\n";
+				std::cout << "\t     Esta saliendo del menu, gracias por jugar     \n";
+				std::cout << "\t---------------------------------------------------\n";
 				break;
 			}
 			else {
 				while (endTurno == false && partidaOn == true) {
-					cout << "--Turno del jugador numero " << lis->getJugador(i)->getNumJug() << "--" << endl;
-					cout << "\n" << lis->getJugador(i)->toString() << endl;
-					cout << "Los puntos obtenidos son: " << lis->getJugador(i)->getMano()->getPuntos() << endl;
+					std::cout << "--Turno del jugador numero " << lis->getJugador(i)->getNumJug()+1 << "--" << std::endl;
+					std::cout << "\n" << lis->getJugador(i)->toString() << std::endl;
+					std::cout << "Los puntos obtenidos son: " << lis->getJugador(i)->getMano()->getPuntos() << std::endl;
 					system("PAUSE");
 					system("CLS");
 
 					if (lis->getJugador(i)->getMano()->getPuntos() > 21) {
-						cout << "HAS PERDIDO... " << endl;
-						cout << "Mas suerte la proxima!" << endl;
+						std::cout << "HAS PERDIDO... " << std::endl;
+						std::cout << "Mas suerte la proxima!" << std::endl;
 						lis->getJugador(i)->setEstado("Perdedor");
 						system("PAUSE");
 						system("CLS");
@@ -86,7 +88,7 @@ void Juego::iniciarPartidas(Mazo* mazo, Lista* lis, Dealer* dea) {
 					else {
 						do {
 							menuJuego();
-							cin >> opc;
+							std::cin >> opc;
 							system("CLS");
 						} while (opc != 'D' && opc != 'P' && opc != 'G' && opc != 'S'); //Comprueba que solo se pueda ingresar las letras del menu
 
@@ -96,7 +98,7 @@ void Juego::iniciarPartidas(Mazo* mazo, Lista* lis, Dealer* dea) {
 						break;
 					}
 					case 'P': {
-						cout << "Siguiente jugador..." << endl;
+						std::cout << "Siguiente jugador..." << std::endl;
 						Sleep(600);
 						endTurno = true;
 						break;
@@ -113,7 +115,7 @@ void Juego::iniciarPartidas(Mazo* mazo, Lista* lis, Dealer* dea) {
 						break;
 					}
 					default:
-						cout << "Opcion no valida";
+						std::cout << "Opcion no valida";
 						break;
 					}
 				}
@@ -126,30 +128,30 @@ void Juego::iniciarPartidas(Mazo* mazo, Lista* lis, Dealer* dea) {
 void Juego::menuJuego() {
 		std::cout << "\t----------------------------------------\n";
 		std::cout << "\t        M E N U  J U G A D O R         \n";
-		std::cout << "\t----------------------------------------\n" << endl;
-		cout << " (D)eme carta - (P)asar - (G)uardar Partida - (S)alir" << endl << endl;
+		std::cout << "\t----------------------------------------\n" << std::endl;
+		std::cout << " (D)eme carta - (P)asar - (G)uardar Partida - (S)alir" << std::endl << std::endl;
 }
 
 void Juego::comprobarGanador(bool part, Mazo* ma, Lista* li, Dealer* de) {
 	static int cant = li->cuentaNodos();
 	if (part == true) { //Comprueba que no se haya terminado el juego
-		cout << "\t--Turno del Dealer--" << endl;
+		std::cout << "\t--Turno del Dealer--" << std::endl;
 		de->volteaSegunda(); 
-		cout << "\n" << de->toString() << endl; // Se muestra la segunda carta del dealer
-		cout << "Los puntos obtenidos son : " << de->getMano()->getPuntos() << endl;
+		std::cout << "\n" << de->toString() << std::endl; // Se muestra la segunda carta del dealer
+		std::cout << "Los puntos obtenidos son : " << de->getMano()->getPuntos() << std::endl;
 		system("PAUSE");
 		system("CLS");
 
 		if (li->getInicio() == nullptr) { //En caso de que no quedaran jugadores, la casa gana por default
-			cout << "La casa ha ganado ya que no hay jugadores disponibles" << endl;
-			cout << "F I N   D E L   J U E G O " << endl;
+			std::cout << "La casa ha ganado ya que no hay jugadores disponibles" << std::endl;
+			std::cout << "F I N   D E L   J U E G O " << std::endl;
 		}
 		else {
 			JugadorGenerico* jugAux = li->getInicio()->dato;
 			while (de->getMano()->getPuntos() < 16) { //Se le añade una carta si la suma es menor de 16 puntos
 				de->getMano()->agregarCarta(ma);
-				cout << de->toString() << endl << endl;
-				cout << "Los puntos obtenidos son : " << de->getMano()->getPuntos() << endl;
+				std::cout << de->toString() << std::endl << std::endl;
+				std::cout << "Los puntos obtenidos son : " << de->getMano()->getPuntos() << std::endl;
 				system("PAUSE");
 			}
 			if (de->getMano()->getPuntos() <= 21) { //En caso de que el dealer no se pase de 21 se comparara con cada jugador
@@ -168,8 +170,8 @@ void Juego::comprobarGanador(bool part, Mazo* ma, Lista* li, Dealer* de) {
 			}
 			else {
 				system("CLS");
-				cout << "La casa ha perdido..." << endl << endl;
-				cout << "============== G A N A D O R E S ==============" << endl << endl;
+				std::cout << "La casa ha perdido..." << std::endl << std::endl;
+				std::cout << "============== G A N A D O R E S ==============" << std::endl << std::endl;
 				li->mostrarGanadores(); //muestra todos los jugadores que no se pasaron de 21
 			}
 		}

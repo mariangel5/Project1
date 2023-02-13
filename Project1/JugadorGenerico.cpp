@@ -5,18 +5,18 @@ JugadorGenerico::JugadorGenerico() {
 	mano = NULL;
 }
 
-JugadorGenerico::JugadorGenerico(string nickname,Mano* mano) {
+JugadorGenerico::JugadorGenerico(std::string nickname,Mano* mano) {
 	this->nickname = nickname;
 	this->mano = mano;
 }
 JugadorGenerico::~JugadorGenerico() {
 
 }
-void JugadorGenerico::setNickname(string nickname){
+void JugadorGenerico::setNickname(std::string nickname){
 	this->nickname = nickname;
 }
 
-string  JugadorGenerico::getNickname() {
+std::string  JugadorGenerico::getNickname() {
 	return nickname;
 }
 
@@ -36,16 +36,16 @@ int JugadorGenerico::getNumJug() {
 	return numJug;
 }
 
-void JugadorGenerico::setEstado(string es) {
+void JugadorGenerico::setEstado(std::string es) {
 	estado = es;
 }
 
-string JugadorGenerico::getEstado() {
+std::string JugadorGenerico::getEstado() {
 	return estado;
 }
 
 void JugadorGenerico::pedirCarta(Mazo* ca) {
 		mano->agregarCarta(ca);
-		cout << "La carta se ha agregado a su mano..." << endl << endl;
+		std::cout << "La carta se ha agregado a su mano..." << std::endl << std::endl;
 		Sleep(400);
 }

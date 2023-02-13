@@ -12,11 +12,11 @@ int main() {
 
 
 	//Carta* c = new Carta("A", "Corazones");
-	//cout<< c->toString();
+	//cout<< c->tostd::string();
 
 	//c->voltear();
-	//cout << c->toString();
-	//cout<< c->stringToInt(c->getValor());
+	//cout << c->tostd::string();
+	//cout<< c->std::stringToInt(c->getValor());
 
 	/*Mazo* k = new Mazo();
 	k->inicializar();
@@ -49,7 +49,7 @@ int main() {
 	l.insertarFinal(jug4);
 	l.insertarFinal(jug5);
 	l.insertarFinal(jug6);
-	cout<< l.toString();
+	cout<< l.tostd::string();
 	system("PAUSE");
 	system("CLS");
 
@@ -64,19 +64,19 @@ int main() {
 
 	//l.getJugador(0)->pedirCarta(k);
 	//l.borrarJug(1);
-	//cout << l.toString();
+	//cout << l.tostd::string();
 
 	////l.insertarFinal(g);
 	////d->agregarCarta(k);
 	////d->agregarCarta(k);
 	////cout<< d->getPuntos();
-	////cout<< l.toString();
-	//cout << d->toString();
+	////cout<< l.tostd::string();
+	//cout << d->tostd::string();
 	//system("PAUSE");
 	//system("CLS");
 	
 	//d.barajar();
-	//cout<<d.toString();
+	//cout<<d.tostd::string();
 
 	//Juego g;
 	//g.juegoNuevo();
@@ -91,75 +91,78 @@ int main() {
 	//a->agregarCarta(d->getCarta("A", "Diamantes"));
 	//Dealer* de = new Dealer("Dealer", a);
 	//de->getMano()->getCarta(1)->voltear();
-	//cout << de->toString() << endl << endl;
+	//cout << de->tostd::string() << endl << endl;
 	//de->volteaSegunda();
-	//cout << de->toString() << endl << endl;
+	//cout << de->tostd::string() << endl << endl;
 
-	//cout << a.toString();
+	//cout << a.tostd::string();
 	//cout<< a.getPuntos();
 //	cout << a.buscarA();
 	
 	//system("PAUSE");
 	//system("CLS");
 	//a.limpiar();
-	//cout<< a.toString();
+	//cout<< a.tostd::string();
 	
 	int op, opcion; 
 	bool error = false;
 	bool validar, otraVez = true;
 
 
-	std::cout << "|--------------------------------------------------|\n";
-	std::cout << "|     Le damos la bienvenida al juego BlackJack    |\n";
-	std::cout << "|--------------------------------------------------|" << std::endl << endl;
+	std::cout << "\t|--------------------------------------------------|\n";
+	std::cout << "\t|     Le damos la bienvenida al juego BlackJack    |\n";
+	std::cout << "\t|--------------------------------------------------|" << std::endl << std::endl;
 
-	while (otraVez == true) {
-		std::cout << "--------M E N U--------" << endl;
+	do {
+		error = false;
+		std::cout << "--------M E N U--------" << std::endl;
 		std::cout << "[1]- Juego Nuevo" << std::endl;
 		std::cout << "[2]- Cargar Partida" << std::endl;
-		std::cout << "[3]- Salir" << std::endl << endl;
-		std::cout << "Digite una opcion: " << std::endl << endl;
+		std::cout << "[3]- Salir" << std::endl;
+		std::cout << "-----------------------" << std::endl << std::endl;
+		std::cout << "Digite una opcion (1, 2 o 3): " << std::endl << std::endl;
 		std::cin >> op;
-		if ((op > 3 || op < 0) || cin.fail()) {
+		if ((op > 3 || op < 0) || std::cin.fail()) {
+			system("CLS");
+			std::cin.clear();
+			std::cin.ignore(50, '\n');
 			error = true;
-			cin.clear();
-			cin.ignore(50, '\n');
-			system("pause");
-			std::cout << "Por favor digite una opcion valida: " << std::endl;
-			std::cin >> op;
+			std::cout << "\t|--------------------------------------------------|\n";
+			std::cout << "\t|        Por favor digite una opcion valida        |\n";
+			std::cout << "\t|--------------------------------------------------|" << std::endl << std::endl;
 		}
-		system("CLS");
-		switch (op)
-		{
+	}while(error);
+	switch (op)
+	{
 		case 1:
-			std::cout << "----------------------------------------\n";
-			std::cout << " Ha seleccionado iniciar un Juego Nuevo \n";
-			std::cout << "----------------------------------------\n";
+			std::cout << "\t----------------------------------------\n";
+			std::cout << "\t Ha seleccionado iniciar un Juego Nuevo \n";
+			std::cout << "\t----------------------------------------\n";
 			system("pause");
 			Juego g;
 			g.iniciaNuevoJuego();
 			break;
 		case 2:
-			std::cout << "----------------------------------------\n";
-			std::cout << "    Ha seleccionado Cargar Partida      \n";
-			std::cout << "----------------------------------------\n";
+			std::cout << "\t----------------------------------------\n";
+			std::cout << "\t    Ha seleccionado Cargar Partida      \n";
+			std::cout << "\t----------------------------------------\n";
 			system("pause");
 			break;
 		default:
-			std::cout << "---------------------------------------------------\n";
-			std::cout << "     Esta saliendo del menu, gracias por jugar     \n";
-			std::cout << "---------------------------------------------------\n";
+			std::cout << "\t---------------------------------------------------\n";
+			std::cout << "\t     Esta saliendo del menu, gracias por jugar     \n";
+			std::cout << "\t---------------------------------------------------\n";
 			break;
 			system("CLS");
-		}
-		do {//Validación
-			cout << "---------------------------------------------------\n";
-			cout << "   ¿Desea  volver al menu y realizar otra accion  ?\n";
-			cout << "---------------------------------------------------\n";
-			cout << "Digite 1 para sí.\n";
-			cout << "Digite 0 para no.\n";
-			cout << "Opcion: ";
-			cin >> opcion;
+	}
+	do {//Validación
+		std::cout << "\t---------------------------------------------------\n";
+		std::cout << "\t    Desea  volver al menu y realizar otra accion   \n";
+		std::cout << "\t---------------------------------------------------\n";
+		std::cout << "Digite 1 para si.\n";
+		std::cout << "Digite 0 para no.\n";
+		std::cout << "Opcion: ";
+		std::cin >> opcion;
 			system("CLS");
 			if ((opcion == 1) || (opcion == 0)) {
 				if (opcion == 1) {
@@ -171,11 +174,11 @@ int main() {
 				validar = true;
 			}
 			else {
-				cout << "ERROR! Ha digitado una opción incorrecta, por favor vuelva a intentar...\n";
+				std::cout << "ERROR! Ha digitado una opción incorrecta, por favor vuelva a intentar...\n";
 				validar = false;
 			}
-		} while (!validar);
-	}
+	} while (!validar);
+
 
 
 	return 0;

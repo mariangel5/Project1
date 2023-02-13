@@ -1,8 +1,8 @@
+#ifndef JUEGO_H
+#define JUEGO_H
 #include "Mano.h"
 #include "Lista.h"
 
-
-#pragma once
 class Juego
 {
 public:
@@ -11,4 +11,4 @@ public:
 	static void menuJuego();
 	static void comprobarGanador(bool, Mazo*, Lista*, Dealer*);
 };
-
+#endif

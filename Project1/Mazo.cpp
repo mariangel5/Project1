@@ -17,8 +17,8 @@ Mazo::~Mazo() {
 
 void Mazo::inicializar() {
 	Carta* aux = nullptr;
-	string numeros[NUMEROS] = { "A","2","3","4","5","6","7","8","9","10","J", "Q", "K" };
-	string palos[PALOS] = { "Espadas", "Corazones","Diamantes", "Treboles" };
+	std::string numeros[NUMEROS] = { "A","2","3","4","5","6","7","8","9","10","J", "Q", "K" };
+	std::string palos[PALOS] = { "Espadas", "Corazones","Diamantes", "Treboles" };
 	for (int j = 0; j < PALOS; j++) {
 		for (int i = 0; i < NUMEROS; i++) {
 			aux = new Carta(numeros[i], palos[j]);
@@ -30,11 +30,11 @@ void Mazo::inicializar() {
 	}
 }
 
-string Mazo::toString() {
-	stringstream s;
+std::string Mazo::toString() {
+	std::stringstream s;
 	for (int i = 0; i < cant; i++) {
 		if (mazo[i] != nullptr) {
-			s << i+1<< mazo[i]->toString() << endl;
+			s << i+1<< mazo[i]->toString() << std::endl;
 		}
 
 	}
@@ -43,7 +43,7 @@ string Mazo::toString() {
 
 void Mazo::barajar() {
 	srand(unsigned(std::time(0)));
-	random_shuffle(&mazo[0], &mazo[CARTAS]); //metodo de libreria de c++ para barajar
+	std::random_shuffle(&mazo[0], &mazo[CARTAS]); //metodo de libreria de c++ para barajar
 }
 
 Carta* Mazo::tomarCarta() { //Metodo regresar ultima carta del mazo
@@ -61,7 +61,7 @@ Carta* Mazo::tomarCarta() { //Metodo regresar ultima carta del mazo
 }
 
 
-Carta* Mazo::getCarta(string n, string p) {
+Carta* Mazo::getCarta(std::string n, std::string p) {
 	for (int i = 0; i < cant; i++) {
 		if (mazo[i]->getValor() == n && mazo[i]->getPalo() == p) {
 			return mazo[i];

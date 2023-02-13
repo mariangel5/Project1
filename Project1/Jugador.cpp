@@ -1,6 +1,6 @@
 #include "Jugador.h"
 
-Jugador::Jugador(string nickname, Mano* mano) {
+Jugador::Jugador(std::string nickname, Mano* mano) {
 	this->nickname = nickname;
 	this->mano = mano;
 	numJug = 0;
@@ -10,9 +10,9 @@ Jugador::~Jugador() {
 }
 
 
-string Jugador::toString() {
-	stringstream s; 
-	s << "============ " << nickname << " ============" << endl;
-	s << "\n" << mano->toString() << endl;
+std::string Jugador::toString() {
+	std::stringstream s; 
+	s << "============ " << nickname << " ============" << std::endl;
+	s << "\n" << mano->toString() << std::endl;
 	return s.str();
 }

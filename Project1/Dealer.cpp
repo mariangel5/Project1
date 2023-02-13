@@ -1,9 +1,10 @@
 #include "Dealer.h"
 
-Dealer::Dealer(string nickname, Mano* mano) {
+Dealer::Dealer(std::string nickname, Mano* mano) {
 	this->nickname = nickname;
 	this->mano = mano;
 }
+
 Dealer::~Dealer() {
 
 }
@@ -14,10 +15,10 @@ void Dealer::volteaSegunda() {
 	}
 }
 
-string Dealer::toString() {
-	stringstream s;
-	s << "============= DEALER =============" << endl;
+std::string Dealer::toString() {
+	std::stringstream s;
+	s << "============= DEALER =============" << std::endl;
 	//s << "\nMano: " << endl
-	s << "\n" << mano->toString() << endl;
+	s << "\n" << mano->toString() << std::endl;
 	return s.str();
 }

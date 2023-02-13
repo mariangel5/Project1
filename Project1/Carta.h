@@ -1,33 +1,32 @@
+#ifndef CARTA_H
+#define CARTA_H
 #include <iostream>
 #include <sstream>
 #include <string>
-
-using namespace std;
-
 #define PALOS    4
 #define NUMEROS 13
 #define CARTAS  (NUMEROS*PALOS)
 
-#pragma once
+
 class Carta
 {
 public:
 	Carta();
-	Carta(string, string);
+	Carta(std::string, std::string);
 	~Carta();
-	void setValor(string);
-	void setPalo(string);
+	void setValor(std::string);
+	void setPalo(std::string);
 	void setBocaAbajo(bool);
-	string getValor();
-	string getPalo();
+	std::string getValor();
+	std::string getPalo();
 	bool getBocaAbajo();
-	int stringToInt(string);
+	int stringToInt(std::string);
 	void voltear();
-	string toString();
+	std::string toString();
 
 private:
-	string valor;
-	string palo;
+	std::string valor;
+	std::string palo;
 	bool bocaAbajo;
 };
-
+#endif

@@ -30,11 +30,12 @@ void Mano::limpiar() { //limpia la mano para un nuevo juego
 	}
 }
 
-string Mano::toString() {
-	stringstream s;
+
+ std::string Mano::toString() {
+	std::stringstream s;
 	for (int i = 0; i < can; i++) {
 		if (cartas[i] != nullptr) {
-			s << cartas[i]->toString() << endl;
+			s << cartas[i]->toString() << std::endl;
 		}
 
 	}

@@ -6,8 +6,8 @@
 class Jugador: public JugadorGenerico {
 
 public:
-	Jugador(string, Mano*);
+	Jugador(std::string, Mano*);
 	~Jugador();
-	string toString();
+	std::string toString();
 };
 #endif

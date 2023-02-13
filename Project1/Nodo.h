@@ -1,4 +1,5 @@
-#pragma once
+#ifndef NODO_H
+#define NODO_H
 #include "Jugador.h" 
 #include "Dealer.h"
 
@@ -11,6 +12,7 @@ public:
 	Nodo* getNext();
 	JugadorGenerico* getJugador();
 	void setNext(Nodo*);
-	string toString();
+	std::string toString();
 };
+#endif
 

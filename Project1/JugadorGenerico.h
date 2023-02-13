@@ -1,37 +1,31 @@
 #ifndef JUGADORGENERICO_H
 #define JUGADORGENERICO_H
-
-#include <iostream>
-#include <sstream>
 #include <string>
 #include "Mano.h"
 #include <Windows.h>
 
-using namespace std;
-
 class JugadorGenerico
 {
 protected:
-	string nickname;
+	std::string nickname;
 	Mano* mano;
 	int numJug;
-	string estado;
+	std::string estado;
 
 public:
 	JugadorGenerico();
 	virtual ~JugadorGenerico();
 	void setNumJug(int);
 	int getNumJug();
-	JugadorGenerico(string, Mano*);
-	void setNickname(string);
-	string  getNickname();
+	JugadorGenerico(std::string, Mano*);
+	void setNickname(std::string);
+	std::string getNickname();
 	void setMano(Mano*);
-	Mano*  getMano();
+	Mano* getMano();
 	void pedirCarta(Mazo*);
-	virtual string toString() = 0;
-	string getEstado();
-	void setEstado(string);
+	virtual std::string toString() = 0;
+	std::string getEstado();
+	void setEstado(std::string);
 
 };
-
 #endif

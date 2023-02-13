@@ -1,6 +1,7 @@
+#ifndef MANO_H
+#define MANO_H
 #include "Mazo.h"
 
-#pragma once
 class Mano   
 {
 public:
@@ -9,7 +10,7 @@ public:
 	void agregarCarta(Mazo*);
 	void limpiar();
 	int getPuntos();
-	string toString();
+	std::string toString();
 	bool buscarA();
 	void agregarCarta(Carta*);
 	Carta* getCarta(int);
@@ -20,4 +21,5 @@ private:
 	int tam;
 	int can;
 };
+#endif
 

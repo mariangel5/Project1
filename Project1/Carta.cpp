@@ -6,18 +6,18 @@ Carta::Carta() {
 	bocaAbajo = 0;
 } 
 
-Carta::Carta(string val, string pal) : valor(val), palo(pal) {
+Carta::Carta(std::string val, std::string pal) : valor(val), palo(pal) {
 	bocaAbajo = 0;
 
 }
 	
 Carta::~Carta() {}
 
-void Carta::setPalo(string pal) {
+void Carta::setPalo(std::string pal) {
 	palo = pal;
 }
 
-void Carta::setValor(string val) {
+void Carta::setValor(std::string val) {
 	valor = val;
 }
 
@@ -25,11 +25,11 @@ void Carta::setBocaAbajo(bool bocA) {
 	bocaAbajo = bocA;
 }
 
-string Carta::getPalo() {
+std::string Carta::getPalo() {
 	return palo;
 }
 
-string Carta::getValor() {
+std::string Carta::getValor() {
 	return valor;
 }
 
@@ -44,34 +44,34 @@ void Carta::voltear() { //Voltea la carta que este boca abajo
 	else setBocaAbajo(0);
 }
 
-string Carta::toString() {
-	stringstream s;
+std::string Carta::toString() {
+	std::stringstream s;
 	if (bocaAbajo == 1) { 
-		s << "-------------- " << endl;
-		s << endl;
-		s << endl;
-		s << endl;
-		s << "   ********   " << endl;
-		s << endl;
-		s << endl;
-		s << endl;
-		s << "-------------- " << endl;
+		s << "-------------- " << std::endl;
+		s << std::endl;
+		s << std::endl;
+		s << std::endl;
+		s << "   ********   " << std::endl;
+		s << std::endl;
+		s << std::endl;
+		s << std::endl;
+		s << "-------------- " << std::endl;
 	}
 	else {
-		s << "-------------- " << endl;
-		s << valor << endl;
-		s << endl;
-		s << endl;
-		s << "   "<<palo<<"  " << endl;
-		s << endl;
-		s << endl;
-		s << "             " << valor << endl;
-		s << "-------------- " << endl;
+		s << "-------------- " << std::endl;
+		s << valor << std::endl;
+		s << std::endl;
+		s << std::endl;
+		s << "   "<<palo<<"  " << std::endl;
+		s << std::endl;
+		s << std::endl;
+		s << "             " << valor << std::endl;
+		s << "-------------- " << std::endl;
 	}
 	return s.str();
 }
 
-int Carta::stringToInt(string v) { //Convierte los valores de la carta a Int
+int Carta::stringToInt(std::string v) { //Convierte los valores de la carta a Int
 	int x = 0;
 	if (v == "A") { return x = 1; }
 	else if (v == "1") { return x = 1; }

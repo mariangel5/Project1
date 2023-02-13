@@ -1,4 +1,5 @@
-#pragma once
+#ifndef LISTA_H
+#define LISTA_H
 #include "Nodo.h" 
 
 class Lista{
@@ -8,7 +9,7 @@ public:
 	Nodo* getInicio();
 	void insertar(Nodo);
 	bool borrarJug(int); //recibe el nombre del jugador que se quiere borrar
-	string toString();
+	std::string toString();
 	bool listaVacia(); 
 	int cuentaNodos();
 	void insertarFinal(JugadorGenerico*);
@@ -20,4 +21,4 @@ private:
 	Nodo* inicio;
 	
 };
-
+#endif
