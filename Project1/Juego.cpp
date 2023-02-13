@@ -84,7 +84,6 @@ void Juego::iniciarPartidas(Mazo* mazo, Lista* lis, Dealer* dea) {
 					std::cout << "\t---------------------------------------------------\n";
 					std::cout << "\t             Los puntos obtenidos son:             \n";
 					std::cout << lis->getJugador(i)->getMano()->getPuntos() << std::endl;
-					std::cout << lis->getJugador(i)->getMano()->getPuntos() << std::endl;
 					std::cout << "\t---------------------------------------------------\n";
 					system("PAUSE");
 					system("CLS");
