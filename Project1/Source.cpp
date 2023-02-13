@@ -135,30 +135,30 @@ int main() {
 	switch (op)
 	{
 		case 1:
-			std::cout << "\t----------------------------------------\n";
-			std::cout << "\t Ha seleccionado iniciar un Juego Nuevo \n";
-			std::cout << "\t----------------------------------------\n";
+			std::cout << "\t\t----------------------------------------\n";
+			std::cout << "\t\t Ha seleccionado iniciar un Juego Nuevo \n";
+			std::cout << "\t\t----------------------------------------\n";
 			system("pause");
 			Juego g;
 			g.iniciaNuevoJuego();
 			break;
 		case 2:
-			std::cout << "\t----------------------------------------\n";
-			std::cout << "\t    Ha seleccionado Cargar Partida      \n";
-			std::cout << "\t----------------------------------------\n";
+			std::cout << "\t\t----------------------------------------\n";
+			std::cout << "\t\t    Ha seleccionado Cargar Partida      \n";
+			std::cout << "\t\t----------------------------------------\n";
 			system("pause");
 			break;
 		default:
-			std::cout << "\t---------------------------------------------------\n";
-			std::cout << "\t     Esta saliendo del menu, gracias por jugar     \n";
-			std::cout << "\t---------------------------------------------------\n";
+			std::cout << "\t\t---------------------------------------------------\n";
+			std::cout << "\t\t     Esta saliendo del menu, gracias por jugar     \n";
+			std::cout << "\t\t---------------------------------------------------\n";
 			break;
 			system("CLS");
 	}
 	do {//Validación
-		std::cout << "\t---------------------------------------------------\n";
-		std::cout << "\t    Desea  volver al menu y realizar otra accion   \n";
-		std::cout << "\t---------------------------------------------------\n";
+		std::cout << "\t\t---------------------------------------------------\n";
+		std::cout << "\t\t    Desea  volver al menu y realizar otra accion   \n";
+		std::cout << "\t\t---------------------------------------------------\n";
 		std::cout << "Digite 1 para si.\n";
 		std::cout << "Digite 0 para no.\n";
 		std::cout << "Opcion: ";

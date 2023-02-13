@@ -14,14 +14,21 @@ void Juego::iniciaNuevoJuego() {
 
 	do {//Se hace un ciclo que pregunte al usuario el numero de jugadores a participar
 		error = false; 
-		std::cout << "Digite el numero de jugadores (Minimo 1 - Maximo 7): "; std::cin >> numJug;
+		std::cout << "\t-------------------------------------------------\n";
+		std::cout << "\t         Digite el numero de jugadores           \n";
+		std::cout << "\t             (Minimo 1 - Maximo 7)               \n";
+		std::cout << "\t-------------------------------------------------" << std::endl << std::endl;
+		std::cin >> numJug;
 		std::cout << std::endl << std::endl;
 		if ((numJug > 7) || (0 >= numJug) || (std::cin.fail())) {//Comprueba si hay fallos cuando se digita un valor no valido y vuelve a preguntar por el dato
 			system("CLS");
 			std::cin.clear();
 			std::cin.ignore(50, '\n');
 			error = true; 
-			std::cout << "------Digite una cantidad valida------" << std::endl << std::endl;
+			std::cout << "\t|--------------------------------------------------|\n";
+			std::cout << "\t|       Por favor digite una cantidad valida       |\n";
+			std::cout << "\t|--------------------------------------------------|\n" << std::endl << std::endl;
+			
 		}
 	} while (error);
 	
@@ -29,7 +36,8 @@ void Juego::iniciaNuevoJuego() {
 		mazo->barajar();
 
 	for (int i = 0; i < numJug; i++) { 
-		std::cout << "=======JUGADOR "<< i + 1 << "======= "  << std::endl;
+		std::cout << "\t=======JUGADOR " << i + 1 << "======= \n";
+		std::cout << "\t-----------------------" << std::endl << std::endl;
 		std::cout<< "Digite su nickname: ";	std::cin >> nomb;	//Le pregunta el nickname a cada jugador
 		std::cout << std::endl << std::endl;
 		Mano* manJ = new Mano();
@@ -73,13 +81,19 @@ void Juego::iniciarPartidas(Mazo* mazo, Lista* lis, Dealer* dea) {
 				while (endTurno == false && partidaOn == true) {
 					std::cout << "--Turno del jugador numero " << lis->getJugador(i)->getNumJug()+1 << "--" << std::endl;
 					std::cout << "\n" << lis->getJugador(i)->toString() << std::endl;
-					std::cout << "Los puntos obtenidos son: " << lis->getJugador(i)->getMano()->getPuntos() << std::endl;
+					std::cout << "\t---------------------------------------------------\n";
+					std::cout << "\t             Los puntos obtenidos son:             \n";
+					std::cout << lis->getJugador(i)->getMano()->getPuntos() << std::endl;
+					std::cout << lis->getJugador(i)->getMano()->getPuntos() << std::endl;
+					std::cout << "\t---------------------------------------------------\n";
 					system("PAUSE");
 					system("CLS");
 
 					if (lis->getJugador(i)->getMano()->getPuntos() > 21) {
-						std::cout << "HAS PERDIDO... " << std::endl;
-						std::cout << "Mas suerte la proxima!" << std::endl;
+						std::cout << "\t---------------------------------------------------\n";
+						std::cout << "\t                     HAS PERDIDO                   \n";
+						std::cout << "\t                Mas suerte la proxima!             \n" << std::endl;
+						std::cout << "\t---------------------------------------------------\n";
 						lis->getJugador(i)->setEstado("Perdedor");
 						system("PAUSE");
 						system("CLS");
