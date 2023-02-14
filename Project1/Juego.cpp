@@ -116,6 +116,8 @@ void Juego::iniciarPartidas(Mazo* mazo, Lista* lis, Dealer* dea) {
 						break;
 					}
 					case 'G': {		
+						guardarJugadores(lis);
+						//guardarEnArchivo(mazo, lis);
 						break;
 					}
 					case 'S': {
@@ -191,4 +193,30 @@ void Juego::comprobarGanador(bool part, Mazo* ma, Lista* li, Dealer* de) {
 			}
 		}
 	}
+}
+
+void Juego::guardarJugadores(Lista* lis) {
+	std::ofstream file;
+	file.open("partida.txt", std::ios::app);
+
+	if (!file.is_open()) {
+		std::cout << "Error al abrir el archivo...\n";
+	}
+
+	file << lis->cuentaNodos() << "\n";
+
+	for (int i = 0; i < lis->cuentaNodos(); i++) {
+		file << lis->getJugador(i)->getNickname() << "Carta:";
+		for (int j = 0; j < lis->getJugador(i)->getMano()->getCant(); j++) {
+			file << lis->getJugador(i)->getMano()->getCarta(j)->getValor() << ",";
+			//if () {
+				file << lis->getJugador(i)->getMano()->getCarta(j)->getPalo() << "\n";
+			//}
+			//else {
+			//	file << lis->getJugador(i)->getMano()->getCarta(j)->getPalo() << "Carta:";
+			//}
+		}
+
+	}
+	file.close();
 }

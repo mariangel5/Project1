@@ -14,6 +14,7 @@ public:
 	bool buscarA();
 	void agregarCarta(Carta*);
 	Carta* getCarta(int);
+	int getCant();
 	
 
 private:

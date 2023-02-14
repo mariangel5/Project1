@@ -72,3 +72,7 @@ void Mano::agregarCarta(Carta* c) {
 Carta* Mano::getCarta(int x) {
 	return cartas[x];
 }
+
+int Mano::getCant() {
+	return can;
+}

@@ -26,7 +26,7 @@ int main() {
 			std::cout << "-----------------------" << std::endl << std::endl;
 			std::cout << "Digite una opcion (1, 2 o 3): " << std::endl << std::endl;
 			std::cin >> op;
-			if ((op > 3 || op < 0) || std::cin.fail()) {
+			if ((op > 3 || op <= 0) || std::cin.fail()) {
 				system("CLS");
 				std::cin.clear();
 				std::cin.ignore(50, '\n');
