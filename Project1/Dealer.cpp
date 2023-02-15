@@ -18,7 +18,6 @@ void Dealer::volteaSegunda() {
 std::string Dealer::toString() {
 	std::stringstream s;
 	s << "============= DEALER =============" << std::endl;
-	//s << "\nMano: " << endl
 	s << "\n" << mano->toString() << std::endl;
 	return s.str();
 }

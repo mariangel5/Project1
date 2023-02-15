@@ -120,14 +120,14 @@ void Lista::mostrarResultados() { //Muestra el nombre de los jugadores con su es
 			actual = actual->getNext();
 		}
 		else if (actual->dato->getEstado() == "Perdedor") {
-			std::cout << "\t			 	Perdedor:                 \n";
+			std::cout << "\t			Perdedor:                 \n";
 			std::cout << "\t\t----------------------------------------\n";
 			std::cout << actual->getJugador()->getNickname() << std::endl << std::endl;
 			std::cout << actual->dato->getMano()->toString() << std::endl;
 			actual = actual->getNext();
 		}
 		else {
-			std::cout << "\t               Empate:                    \n";
+			std::cout << "\t             Empate:                    \n";
 			std::cout << "\t\t----------------------------------------\n";
 			std::cout << actual->getJugador()->getNickname() << std::endl << std::endl;
 			std::cout << actual->dato->getMano()->toString() << std::endl;
@@ -140,7 +140,7 @@ void Lista::mostrarGanadores() {
 	Nodo* actual = inicio;
 	while (actual != nullptr) {
 		if (actual->dato->getMano()->getPuntos() <= 21) {
-			std::cout << "\t				Ganador:                  \n";
+			std::cout << "\t			Ganador:                  \n";
 			std::cout << "\t\t----------------------------------------\n";
 			std::cout << actual->dato->getNickname() << std::endl << std::endl;
 			std::cout << actual->dato->getMano()->toString() << std::endl;
