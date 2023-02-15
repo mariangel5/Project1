@@ -41,7 +41,7 @@ void Juego::iniciaNuevoJuego() {
 		std::cout << "\t-----------------------" << std::endl << std::endl;
 		std::cout << "Digite su nickname: ";	std::cin >> nomb;	//Le pregunta el nickname a cada jugador
 
-		for (i = 0; i < jugadores->cuentaNodos(); i++) {
+		for (i = 0; i < jugadores->cuentaNodos(); i++) {     // se verifica que no se repitan los nicknames
 			if (nomb == jugadores->getJugador(i)->getNickname()) {
 				verifiNomb = nomb;
 				while (verifiNomb == nomb) {
