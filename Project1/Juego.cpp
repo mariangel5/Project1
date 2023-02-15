@@ -11,6 +11,7 @@ void Juego::iniciaNuevoJuego() {
 	std::string verifiNomb;
 	int num = 0;
 	bool error;
+	int i = 0;
 
 
 	do {//Se hace un ciclo que pregunte al usuario el numero de jugadores a participar
@@ -45,6 +46,7 @@ void Juego::iniciaNuevoJuego() {
 			if (nomb == jugadores->getJugador(i)->getNickname()) {
 				verifiNomb = nomb;
 				while (verifiNomb == nomb) {
+					system("CLS");
 					std::cout << "Su nickname ya ha sido escojido, por favor inserte otro: ";
 					std::cin >> nomb;
 				}
@@ -72,7 +74,7 @@ void Juego::iniciaNuevoJuego() {
 	system("PAUSE");
 	system("CLS");
 
-	iniciarPartidas(mazo, jugadores, dealer, 0);
+	iniciarPartidas(mazo, jugadores, dealer, i);
 }
 
 void Juego::iniciarPartidas(Mazo* mazo, Lista* lis, Dealer* dea, int i) {
@@ -128,16 +130,36 @@ void Juego::iniciarPartidas(Mazo* mazo, Lista* lis, Dealer* dea, int i) {
 						break;
 					}
 					case 'G': {
-						guardarLista("Jugadores.txt", lis);
-						guardarMazo(mazo, "Mazo.txt");
-						guardarDealer(dea, "Dealer.txt");
-						guardarTurno(i, "Turno.txt");
-						system("CLS");
-						std::cout << "------------------------------------------\n";
-						std::cout << "          El juego se ha guardado         \n";
-						std::cout << "------------------------------------------\n";
-						system("PAUSE");
-						break;
+						int guardado;
+						do {
+							std::cout << "\t--------------------------------------------------------------------------------\n";
+							std::cout << "\tTome en cuenta que si guarda ahora se borrara la partida anteriormente guardada" << std::endl;
+							std::cout << "\tDesea guardar: 0. Si 1. No: ";
+							std::cout << "\t--------------------------------------------------------------------------------\n";
+							std::cin >> guardado;
+							if (std::cin.fail()) {
+								std::cin.clear();
+								std::cin.ignore();
+							}
+						} while (guardado != 0 && guardado != 1);
+						if (guardado == 0) {
+							guardarLista("Jugadores.txt", lis);
+							guardarMazo(mazo, "Mazo.txt");
+							guardarDealer(dea, "Dealer.txt");
+							guardarTurno(i, "Turno.txt");
+							system("CLS");
+							std::cout << "------------------------------------------\n";
+							std::cout << "          El juego se ha guardado         \n";
+							std::cout << "------------------------------------------\n";
+							system("PAUSE");
+							break;
+						}
+						else {
+							std::cout << "------------------------------------------\n";
+							std::cout << "        El juego no se ha guardado        \n";
+							std::cout << "------------------------------------------\n";
+							break;
+						}
 					}
 					case 'S': {
 						std::cout << "----------------------------------------\n";
@@ -216,7 +238,7 @@ void Juego::comprobarGanador(bool part, Mazo* ma, Lista* li, Dealer* de) {
 
 void Juego::guardarLista(std::string m, Lista* lis) {
 	std::ofstream file;
-	file.open(m, std::ios::app);
+	file.open(m, std::ios::out);
 
 	if (!file.is_open()) {
 		std::cout << "Error al abrir el archivo...\n";
@@ -274,7 +296,7 @@ int Juego::stringToInt(std::string s) {
 void Juego::guardarMazo(Mazo* m, std::string n) {
 	std::ofstream file;
 
-	file.open(n, std::ios::app);
+	file.open(n, std::ios::out);
 	if (!file.is_open()) {
 		std::cout << "Error al abrir el archivo...\n";
 	}
@@ -317,7 +339,7 @@ void Juego::guardarDealer(Dealer* d, std::string pa) {
 
 	std::ofstream file;
 
-	file.open(pa, std::ios::app);
+	file.open(pa, std::ios::out);
 
 	if (!file.is_open()) {
 		std::cout << "Error al abrir el archivo...\n";
@@ -366,7 +388,7 @@ void Juego::cargarPartida() {
 void Juego::guardarTurno(int i, std::string pa) {
 	std::ofstream file;
 
-	file.open(pa, std::ios::app);
+	file.open(pa, std::ios::out);
 
 	if (!file.is_open()) {
 		std::cout << "Error al abrir el archivo...\n";
