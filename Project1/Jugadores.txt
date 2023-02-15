@@ -1,2 +1,0 @@
-a&2&0&3,Espadas|8,Treboles
-b&2&1&10,Treboles|7,Corazones
