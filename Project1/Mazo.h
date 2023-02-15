@@ -14,6 +14,8 @@ public:
 	Carta* tomarCarta();
 	std::string toString();
 	Carta* getCarta(std::string, std::string);
+	void guardarMazo(std::ofstream&);
+	void agregarCarta(Carta*);
 
 protected:
 	Carta** mazo;

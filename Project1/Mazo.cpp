@@ -69,3 +69,23 @@ Carta* Mazo::getCarta(std::string n, std::string p) {
 	}
 	return nullptr;
 }
+
+void Mazo::guardarMazo(std::ofstream& partida) {
+	partida << cant << "&";
+	for (int i = 0; i < cant; i++) {
+		if (mazo[i + 1] == mazo[CARTAS - 1]) {
+			mazo[i]->guardarCarta(partida);
+			partida << "\n";
+		}
+		else {
+			mazo[i]->guardarCarta(partida);
+			partida << "|";
+		}
+	}
+}
+
+void Mazo::agregarCarta(Carta* ca) { //Se añade una carta al mazo
+	if (cant < CARTAS) {
+		mazo[cant++] = ca;
+	}
+}

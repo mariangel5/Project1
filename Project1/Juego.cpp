@@ -10,10 +10,10 @@ void Juego::iniciaNuevoJuego() {
 	std::string nomb;
 	int num = 0;
 	bool error;
-	
+
 
 	do {//Se hace un ciclo que pregunte al usuario el numero de jugadores a participar
-		error = false; 
+		error = false;
 		std::cout << "\t-------------------------------------------------\n";
 		std::cout << "\t         Digite el numero de jugadores           \n";
 		std::cout << "\t             (Minimo 1 - Maximo 7)               \n";
@@ -24,21 +24,21 @@ void Juego::iniciaNuevoJuego() {
 			system("CLS");
 			std::cin.clear();
 			std::cin.ignore(50, '\n');
-			error = true; 
+			error = true;
 			std::cout << "\t|--------------------------------------------------|\n";
 			std::cout << "\t|       Por favor digite una cantidad valida       |\n";
 			std::cout << "\t|--------------------------------------------------|\n" << std::endl << std::endl;
-			
+
 		}
 	} while (error);
-	
-		mazo->inicializar();
-		mazo->barajar();
 
-	for (int i = 0; i < numJug; i++) { 
+	mazo->inicializar();
+	mazo->barajar();
+
+	for (int i = 0; i < numJug; i++) {
 		std::cout << "\t=======JUGADOR " << i + 1 << "======= \n";
 		std::cout << "\t-----------------------" << std::endl << std::endl;
-		std::cout<< "Digite su nickname: ";	std::cin >> nomb;	//Le pregunta el nickname a cada jugador
+		std::cout << "Digite su nickname: ";	std::cin >> nomb;	//Le pregunta el nickname a cada jugador
 		std::cout << std::endl << std::endl;
 		Mano* manJ = new Mano();
 		JugadorGenerico* j1 = new Jugador(nomb, manJ);
@@ -54,22 +54,22 @@ void Juego::iniciaNuevoJuego() {
 	manoD->agregarCarta(mazo);
 	manoD->agregarCarta(mazo);					//Agrega las cartas al dealer
 	dealer->getMano()->getCarta(1)->voltear();	// Le da vuelta a una de las cartas para que no se muestre su valor
-	
+
 	std::cout << jugadores->toString() << std::endl << std::endl;
 	std::cout << dealer->toString() << std::endl;
 	system("PAUSE");
 	system("CLS");
 
-	iniciarPartidas(mazo, jugadores, dealer);
+	iniciarPartidas(mazo, jugadores, dealer, 0);
 }
 
-void Juego::iniciarPartidas(Mazo* mazo, Lista* lis, Dealer* dea) {
+void Juego::iniciarPartidas(Mazo* mazo, Lista* lis, Dealer* dea, int i) {
 	char opc;
-	bool partidaOn = true; 
+	bool partidaOn = true;
 	bool endTurno;
 	static int cantJugadores = lis->cuentaNodos();
 	if (partidaOn == true) {
-		for (int i = 0; i < cantJugadores; i++) {
+		for (i; i < cantJugadores; i++) {
 			endTurno = false;
 			if (cantJugadores == 0) {
 				std::cout << "\t---------------------------------------------------\n";
@@ -79,7 +79,7 @@ void Juego::iniciarPartidas(Mazo* mazo, Lista* lis, Dealer* dea) {
 			}
 			else {
 				while (endTurno == false && partidaOn == true) {
-					std::cout << "--Turno del jugador numero " << lis->getJugador(i)->getNumJug()+1 << "--" << std::endl;
+					std::cout << "--Turno del jugador numero " << lis->getJugador(i)->getNumJug() + 1 << "--" << std::endl;
 					std::cout << "\n" << lis->getJugador(i)->toString() << std::endl;
 					std::cout << "\t---------------------------------------------------\n";
 					std::cout << "\t             Los puntos obtenidos son:             \n";
@@ -115,9 +115,16 @@ void Juego::iniciarPartidas(Mazo* mazo, Lista* lis, Dealer* dea) {
 						endTurno = true;
 						break;
 					}
-					case 'G': {		
-						guardarJugadores(lis);
-						//guardarEnArchivo(mazo, lis);
+					case 'G': {
+						guardarLista("Jugadores.txt", lis);
+						guardarMazo(mazo, "Mazo.txt");
+						guardarDealer(dea, "Dealer.txt");
+						guardarTurno(i, "Turno.txt");
+						system("CLS");
+						std::cout << "------------------------------------------\n";
+						std::cout << "          El juego se ha guardado         \n";
+						std::cout << "------------------------------------------\n";
+						system("PAUSE");
 						break;
 					}
 					case 'S': {
@@ -140,17 +147,17 @@ void Juego::iniciarPartidas(Mazo* mazo, Lista* lis, Dealer* dea) {
 }
 
 void Juego::menuJuego() {
-		std::cout << "\t----------------------------------------\n";
-		std::cout << "\t        M E N U  J U G A D O R         \n";
-		std::cout << "\t----------------------------------------\n" << std::endl;
-		std::cout << " (D)eme carta - (P)asar - (G)uardar Partida - (S)alir" << std::endl << std::endl;
+	std::cout << "\t----------------------------------------\n";
+	std::cout << "\t        M E N U  J U G A D O R         \n";
+	std::cout << "\t----------------------------------------\n" << std::endl;
+	std::cout << " (D)eme carta - (P)asar - (G)uardar Partida - (S)alir" << std::endl << std::endl;
 }
 
 void Juego::comprobarGanador(bool part, Mazo* ma, Lista* li, Dealer* de) {
 	static int cant = li->cuentaNodos();
 	if (part == true) { //Comprueba que no se haya terminado el juego
 		std::cout << "\t--Turno del Dealer--" << std::endl;
-		de->volteaSegunda(); 
+		de->volteaSegunda();
 		std::cout << "\n" << de->toString() << std::endl; // Se muestra la segunda carta del dealer
 		std::cout << "Los puntos obtenidos son : " << de->getMano()->getPuntos() << std::endl;
 		system("PAUSE");
@@ -195,28 +202,184 @@ void Juego::comprobarGanador(bool part, Mazo* ma, Lista* li, Dealer* de) {
 	}
 }
 
-void Juego::guardarJugadores(Lista* lis) {
+void Juego::guardarLista(std::string m, Lista* lis) {
 	std::ofstream file;
-	file.open("partida.txt", std::ios::app);
+	file.open(m, std::ios::app);
+
+	if (!file.is_open()) {
+		std::cout << "Error al abrir el archivo...\n";
+	}
+	lis->guardarJugador(file);
+	file.close();
+}
+
+Lista* Juego::cargarLista() {
+
+	std::string nickname;
+	std::string palo;
+	std::string valor;
+	std::string buffer;
+	std::string cant;
+	Lista* lis = new Lista();
+	std::ifstream file;
+	std::string cont;
+
+	file.open("Jugadores.txt", std::ios::in);
 
 	if (!file.is_open()) {
 		std::cout << "Error al abrir el archivo...\n";
 	}
 
-	file << lis->cuentaNodos() << "\n";
 
-	for (int i = 0; i < lis->cuentaNodos(); i++) {
-		file << lis->getJugador(i)->getNickname() << "Carta:";
-		for (int j = 0; j < lis->getJugador(i)->getMano()->getCant(); j++) {
-			file << lis->getJugador(i)->getMano()->getCarta(j)->getValor() << ",";
-			//if () {
-				file << lis->getJugador(i)->getMano()->getCarta(j)->getPalo() << "\n";
-			//}
-			//else {
-			//	file << lis->getJugador(i)->getMano()->getCarta(j)->getPalo() << "Carta:";
-			//}
+	while (std::getline(file, buffer)) {
+		std::istringstream linea{ buffer };
+		std::getline(linea, nickname, '&');
+		std::getline(linea, cant, '&');
+		std::getline(linea, cont, '&');
+		Mano* mano = new Mano();
+		for (int i = 0; i < stringToInt(cant); i++) {
+			std::getline(linea, valor, ',');
+			std::getline(linea, palo, '|');
+			Carta* c = new Carta(valor, palo);
+			mano->agregarCarta(c);
 		}
-
+		Jugador* j1 = new Jugador(nickname, mano);
+		j1->setNumJug(stringToInt(cont));
+		lis->insertarFinal(j1);
 	}
+	return lis;
+}
+
+
+int Juego::stringToInt(std::string s) {
+	int x;
+	std::stringstream ss;
+	ss << s;
+	ss >> x;
+	return x;
+}
+
+void Juego::guardarMazo(Mazo* m, std::string n) {
+	std::ofstream file;
+
+	file.open(n, std::ios::app);
+	if (!file.is_open()) {
+		std::cout << "Error al abrir el archivo...\n";
+	}
+
+	m->guardarMazo(file);
 	file.close();
+}
+
+Mazo* Juego::cargarMazo() {
+
+	std::string palo;
+	std::string valor;
+	std::string buffer;
+	std::string cant;
+	std::ifstream file;
+
+	file.open("Mazo.txt", std::ios::in);
+
+	if (!file.is_open()) {
+		std::cout << "Error al abrir el archivo...\n";
+	}
+
+	Mazo* mazo = new Mazo;
+	while (std::getline(file, buffer)) {
+		std::istringstream linea{ buffer };
+		std::getline(linea, cant, '&');
+		for (int i = 0; i < stringToInt(cant); i++) {
+			std::getline(linea, valor, ',');
+			std::getline(linea, palo, '|');
+			Carta* c = new Carta(valor, palo);
+			mazo->agregarCarta(c);
+
+		}
+	}
+
+	return mazo;
+}
+
+void Juego::guardarDealer(Dealer* d, std::string pa) {
+
+	std::ofstream file;
+
+	file.open(pa, std::ios::app);
+
+	if (!file.is_open()) {
+		std::cout << "Error al abrir el archivo...\n";
+	}
+
+	d->guardarDealer(file);
+	file.close();
+}
+
+Dealer* Juego::cargarDealer() {
+
+	std::string nickname;
+	std::string palo;
+	std::string valor;
+	std::string buffer;
+	std::string cant;
+	std::ifstream file;
+
+	file.open("Dealer.txt", std::ios::in);
+
+	if (!file.is_open()) {
+		std::cout << "Error al abrir el archivo...\n";
+	}
+
+	Dealer* a = nullptr;
+	while (std::getline(file, buffer)) {
+		std::istringstream linea{ buffer };
+		std::getline(linea, nickname, '%');
+		std::getline(linea, cant, '%');
+		Mano* mano = new Mano();
+		for (int i = 0; i < stringToInt(cant); i++) {
+			std::getline(linea, valor, ',');
+			std::getline(linea, palo, '|');
+			Carta* c = new Carta(valor, palo);
+			mano->agregarCarta(c);
+		}
+		a = new Dealer("dealer", mano);
+	}
+	return a;
+}
+
+void Juego::cargarPartida() {
+	iniciarPartidas(cargarMazo(), cargarLista(), cargarDealer(), cargarTurno());
+}
+
+void Juego::guardarTurno(int i, std::string pa) {
+	std::ofstream file;
+
+	file.open(pa, std::ios::app);
+
+	if (!file.is_open()) {
+		std::cout << "Error al abrir el archivo...\n";
+	}
+
+	file << i << "%";
+
+	file.close();
+}
+
+int Juego::cargarTurno() {
+	std::string num;
+	std::string buffer;
+	std::ifstream file;
+
+	file.open("Turno.txt", std::ios::in);
+
+	if (!file.is_open()) {
+		std::cout << "Error al abrir el archivo...\n";
+	}
+
+	while (std::getline(file, buffer)) {
+		std::istringstream linea{ buffer };
+		std::getline(linea, num, '%');
+	}
+	return stringToInt(num);
+
 }

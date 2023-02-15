@@ -144,3 +144,12 @@ void Lista::mostrarGanadores() {
 		actual = actual->getNext();
 	}
 }
+
+void Lista::guardarJugador(std::ofstream& partida) {
+	for (int i = 0; i < cuentaNodos(); i++) {
+		partida << getJugador(i)->getNickname() << "&";
+		partida << getJugador(i)->getMano()->getCant() << "&";
+		partida << getJugador(i)->getNumJug() << "&";
+		getJugador(i)->getMano()->guardarMano(partida);
+	}
+}

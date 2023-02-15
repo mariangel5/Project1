@@ -22,3 +22,9 @@ std::string Dealer::toString() {
 	s << "\n" << mano->toString() << std::endl;
 	return s.str();
 }
+
+void Dealer::guardarDealer(std::ofstream& partida) {
+	partida << nickname << "%";
+	partida << mano->getCant() << "%";
+	mano->guardarMano(partida);
+}

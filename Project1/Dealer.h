@@ -10,6 +10,7 @@ public:
 	Carta* pedirCarta();
 	void volteaSegunda();
 	std::string toString();
+	void guardarDealer(std::ofstream&);
 };
 
 #endif

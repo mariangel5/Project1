@@ -76,3 +76,16 @@ Carta* Mano::getCarta(int x) {
 int Mano::getCant() {
 	return can;
 }
+
+void Mano::guardarMano(std::ofstream& partida) {
+	for (int i = 0; i < can; i++) {
+		if (cartas[i + 1] == cartas[can]) {
+			cartas[i]->guardarCarta(partida);
+			partida << "\n";
+		}
+		else {
+			cartas[i]->guardarCarta(partida);
+			partida << "|";
+		}
+	}
+}

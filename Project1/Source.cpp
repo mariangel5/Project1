@@ -1,13 +1,11 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-
 #include "Juego.h"
-//using namespace std;
 
+int main() {
 
-int main() {	
-	int op, opcion; 
+	int op, opcion;
 	bool error = false;
 	bool validar, otraVez = true;
 
@@ -26,7 +24,7 @@ int main() {
 			std::cout << "-----------------------" << std::endl << std::endl;
 			std::cout << "Digite una opcion (1, 2 o 3): " << std::endl << std::endl;
 			std::cin >> op;
-			if ((op > 3 || op <= 0) || std::cin.fail()) {
+			if ((op > 3 || op < 0) || std::cin.fail()) {
 				system("CLS");
 				std::cin.clear();
 				std::cin.ignore(50, '\n');
@@ -51,6 +49,7 @@ int main() {
 			std::cout << "\t\t    Ha seleccionado Cargar Partida      \n";
 			std::cout << "\t\t----------------------------------------\n";
 			system("pause");
+			g.cargarPartida();
 			break;
 		default:
 			std::cout << "\t\t---------------------------------------------------\n";

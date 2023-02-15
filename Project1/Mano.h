@@ -15,7 +15,7 @@ public:
 	void agregarCarta(Carta*);
 	Carta* getCarta(int);
 	int getCant();
-	
+	void guardarMano(std::ofstream& partida);
 
 private:
 	Carta** cartas;

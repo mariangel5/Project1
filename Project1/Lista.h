@@ -16,6 +16,7 @@ public:
 	JugadorGenerico* getJugador(int);
 	void mostrarResultados();
 	void mostrarGanadores();
+	void guardarJugador(std::ofstream&);
 
 private:
 	Nodo* inicio;

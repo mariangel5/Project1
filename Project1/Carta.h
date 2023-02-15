@@ -3,6 +3,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <fstream>
 #define PALOS    4
 #define NUMEROS 13
 #define CARTAS  (NUMEROS*PALOS)
@@ -23,6 +24,7 @@ public:
 	int stringToInt(std::string);
 	void voltear();
 	std::string toString();
+	void guardarCarta(std::ofstream&);
 
 private:
 	std::string valor;
