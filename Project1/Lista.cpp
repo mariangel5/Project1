@@ -21,7 +21,7 @@ Lista::~Lista() {
 }
 
 
-void Lista::insertar(Nodo j) {
+void Lista::insertar(Nodo j) { //inserta un jugador a la lista 
 	Nodo* nuevo;
 	nuevo = new Nodo{ j };
 	if (inicio == nullptr)
@@ -110,22 +110,25 @@ JugadorGenerico* Lista::getJugador(int num) { //Devuelve el jugador de acuerdo a
 
 void Lista::mostrarResultados() { //Muestra el nombre de los jugadores con su estado del juego
 	Nodo* actual = inicio; 
-	std::cout << "============== R E S U L T A D O S ==============" << std::endl << std::endl;
+	std::cout << "\t\t============== R E S U L T A D O S ==============" << std::endl << std::endl;
 	while (actual != nullptr) {
 		if (actual->dato->getEstado() == "Ganador") {
-			std::cout << "Ganador: ";
+			std::cout << "\t				Ganador:                  \n";
+			std::cout << "\t\t----------------------------------------\n";
 			std::cout << actual->dato->getNickname() << std::endl << std::endl;
 			std::cout << actual->dato->getMano()->toString() << std::endl;
 			actual = actual->getNext();
 		}
 		else if (actual->dato->getEstado() == "Perdedor") {
-			std::cout << "Perdedor: ";
+			std::cout << "\t			 	Perdedor:                 \n";
+			std::cout << "\t\t----------------------------------------\n";
 			std::cout << actual->getJugador()->getNickname() << std::endl << std::endl;
 			std::cout << actual->dato->getMano()->toString() << std::endl;
 			actual = actual->getNext();
 		}
 		else {
-			std::cout << "Empate: ";
+			std::cout << "\t               Empate:                    \n";
+			std::cout << "\t\t----------------------------------------\n";
 			std::cout << actual->getJugador()->getNickname() << std::endl << std::endl;
 			std::cout << actual->dato->getMano()->toString() << std::endl;
 			actual = actual->getNext();
@@ -137,7 +140,8 @@ void Lista::mostrarGanadores() {
 	Nodo* actual = inicio;
 	while (actual != nullptr) {
 		if (actual->dato->getMano()->getPuntos() <= 21) {
-			std::cout << "Ganador: ";
+			std::cout << "\t				Ganador:                  \n";
+			std::cout << "\t\t----------------------------------------\n";
 			std::cout << actual->dato->getNickname() << std::endl << std::endl;
 			std::cout << actual->dato->getMano()->toString() << std::endl;
 		}
