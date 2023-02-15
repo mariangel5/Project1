@@ -8,6 +8,7 @@ void Juego::iniciaNuevoJuego() {
 	Dealer* dealer = new Dealer("Dealer", manoD);
 	int numJug = 0;
 	std::string nomb;
+	std::string verifiNomb;
 	int num = 0;
 	bool error;
 
@@ -39,6 +40,17 @@ void Juego::iniciaNuevoJuego() {
 		std::cout << "\t=======JUGADOR " << i + 1 << "======= \n";
 		std::cout << "\t-----------------------" << std::endl << std::endl;
 		std::cout << "Digite su nickname: ";	std::cin >> nomb;	//Le pregunta el nickname a cada jugador
+
+		for (i = 0; i < jugadores->cuentaNodos(); i++) {
+			if (nomb == jugadores->getJugador(i)->getNickname()) {
+				verifiNomb = nomb;
+				while (verifiNomb == nomb) {
+					std::cout << "Su nickname ya ha sido escojido, por favor inserte otro: ";
+					std::cin >> nomb;
+				}
+			}
+		}
+
 		std::cout << std::endl << std::endl;
 		Mano* manJ = new Mano();
 		JugadorGenerico* j1 = new Jugador(nomb, manJ);
