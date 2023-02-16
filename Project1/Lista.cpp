@@ -115,7 +115,7 @@ void Lista::mostrarResultados() { //Muestra el nombre de los jugadores con su es
 		}
 		else {
 			std::cout << "\t		          EMPATE                  \n";
-			//std::cout << "\t\t----------------------------------------\n" << std::endl;
+			std::cout << "\t\t----------------------------------------\n" << std::endl;
 			std::cout << actual->getJugador()->getNickname() << std::endl << std::endl << std::endl;
 			std::cout << actual->dato->getMano()->toString() << std::endl;
 			actual = actual->getNext();
