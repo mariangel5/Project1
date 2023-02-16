@@ -131,11 +131,11 @@ void Juego::iniciarPartidas(Mazo* mazo, Lista* lis, Dealer* dea, int i) { //Se i
 						int guardado;
 						do {
 							std::cout << "\t--------------------------------------------------------------------------------\n";
-							std::cout << "\tTome en cuenta que si guarda ahora se borrara la partida anteriormente guardada" << std::endl;
-							std::cout << "\tDesea guardar: 0. Si 1. No: \n";
+							std::cout << "\t Tome en cuenta que si guarda ahora se borrara la partida anteriormente guardada" << std::endl;
+							std::cout << "\t                         Desea guardar: 0. Si 1. No:                            \n";
 							std::cout << "\t--------------------------------------------------------------------------------\n";
 							std::cin >> guardado;
-							if (std::cin.fail()) {
+							if (std::cin.fail()) {//validacion
 								std::cin.clear();
 								std::cin.ignore();
 							}
@@ -237,7 +237,7 @@ void Juego::comprobarGanador(bool part, Mazo* ma, Lista* li, Dealer* de) { //se 
 				std::cout << "\t\t----------------------------------------\n";
 				std::cout << "\t\t          La casa ha perdido...         \n";
 				std::cout << "\t\t----------------------------------------\n\n";
-				std::cout << "\t\t============== G A N A D O R  ==============" << std::endl << std::endl;
+				std::cout << "\t\t============== R E S U L T A D O S  ==============" << std::endl << std::endl;
 				li->mostrarGanadores(); //muestra todos los jugadores que no se pasaron de 21
 			}
 		}
@@ -298,7 +298,7 @@ int Juego::stringToInt(std::string s) { //recibe un string
 	std::stringstream ss; 
 	ss << s; 
 	ss >> x; //pasa el string a int
-	return x; //devuelve el el valor en int
+	return x; //devuelve el valor del string en int
 }
 
 void Juego::guardarMazo(Mazo* m, std::string n) { //pasa por parametro el mazo a guardar y el nombre del archivo
@@ -343,7 +343,7 @@ Mazo* Juego::cargarMazo() {
 	return mazo; //Devuelve el mazo con las cartas del archico
 }
 
-void Juego::guardarDealer(Dealer* d, std::string pa) { 
+void Juego::guardarDealer(Dealer* d, std::string pa) { //se le pasa por parametro al dealer y el palo
 
 	std::ofstream file;
 
@@ -390,7 +390,7 @@ Dealer* Juego::cargarDealer() {
 }
 
 
-void Juego::guardarTurno(int i, std::string pa) { 
+void Juego::guardarTurno(int i, std::string pa) { //se le pasa por parametro el palo
 	std::ofstream file;
 
 	file.open(pa, std::ios::out);
