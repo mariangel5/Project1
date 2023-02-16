@@ -38,22 +38,14 @@ void Juego::iniciaNuevoJuego() {
 	mazo->inicializar();
 	mazo->barajar();
 
-	for (int i = 0; i < numJug; i++) {
-		std::cout << "\t=======JUGADOR " << i + 1 << "======= \n";
+	for (int j = 0; j < numJug; j++) {
+		std::cout << "\t=======JUGADOR " << j + 1 << "======= \n";
 		std::cout << "\t-----------------------" << std::endl << std::endl;
 		std::cout << "Digite su nickname: ";	std::cin >> nomb;	//Le pregunta el nickname a cada jugador
-
-		for (i = 0; i < jugadores->cuentaNodos(); i++) {     // se verifica que no se repitan los nicknames
-			if (nomb == jugadores->getJugador(i)->getNickname()) {
-				verifiNomb = nomb;
-				while (verifiNomb == nomb) {
-					system("CLS");
-					std::cout << "Su nickname ya ha sido escojido, por favor inserte otro: ";
-					std::cin >> nomb;
-				}
-			}
-		}
-
+		if (jugadores->buscarJugador(nomb) == true) {
+			std::cout << "Ya ese nombre fue escogido" << std::endl;
+			j--;
+		} 
 		std::cout << std::endl << std::endl;
 		Mano* manJ = new Mano();
 		JugadorGenerico* j1 = new Jugador(nomb, manJ);

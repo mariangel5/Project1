@@ -157,3 +157,17 @@ void Lista::guardarJugador(std::ofstream& partida) {
 		getJugador(i)->getMano()->guardarMano(partida);
 	}
 }
+
+
+bool Lista::buscarJugador(std::string nomb) {
+	Nodo* aux = inicio;
+	while (aux != NULL) {
+		if (aux->dato->getNickname() == nomb) {
+			return true;
+		}
+		else {
+			aux = aux->next;
+		}
+	}
+	return false;
+}

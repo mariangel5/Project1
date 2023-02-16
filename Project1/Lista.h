@@ -17,6 +17,7 @@ public:
 	void mostrarResultados();
 	void mostrarGanadores();
 	void guardarJugador(std::ofstream&);
+	bool buscarJugador(std::string);
 
 private:
 	Nodo* inicio;
