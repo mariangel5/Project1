@@ -390,6 +390,9 @@ Dealer* Juego::cargarDealer() {
 }
 
 void Juego::cargarPartida() {
+	if (cargarDealer() == nullptr) {
+		std::cout << "ERROR";
+	}
 	iniciarPartidas(cargarMazo(), cargarLista(), cargarDealer(), cargarTurno());
 }
 
