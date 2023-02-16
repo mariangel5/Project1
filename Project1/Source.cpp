@@ -77,7 +77,9 @@ int main() {
 				validar = true;
 			}
 			else {
-				std::cout << "ERROR! Ha digitado una opción incorrecta, por favor vuelva a intentar...\n";
+				std::cout << "\t|-------------------------------------------------------------------------------|\n";
+				std::cout << "\t|    ERROR! Ha digitado una opción incorrecta, por favor vuelva a intentar...   |\n";
+				std::cout << "\t|-------------------------------------------------------------------------------|" << std::endl << std::endl;
 				validar = false;
 			}
 		} while (!validar);
