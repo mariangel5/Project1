@@ -132,7 +132,7 @@ void Juego::iniciarPartidas(Mazo* mazo, Lista* lis, Dealer* dea, int i) { //Se i
 						do {
 							std::cout << "\t--------------------------------------------------------------------------------\n";
 							std::cout << "\tTome en cuenta que si guarda ahora se borrara la partida anteriormente guardada" << std::endl;
-							std::cout << "\tDesea guardar: 0. Si 1. No: ";
+							std::cout << "\tDesea guardar: 0. Si 1. No: \n";
 							std::cout << "\t--------------------------------------------------------------------------------\n";
 							std::cin >> guardado;
 							if (std::cin.fail()) {
@@ -244,20 +244,20 @@ void Juego::comprobarGanador(bool part, Mazo* ma, Lista* li, Dealer* de) { //se 
 	}
 }
 
-void Juego::guardarLista(std::string m, Lista* lis) {//archivo de jugadores
+void Juego::guardarLista(std::string m, Lista* lis) {
 	std::ofstream file;
-	file.open(m, std::ios::out);
+	file.open(m, std::ios::out); //Se usa out para que se escriba sobre la partida vieja
 
-	if (!file.is_open()) {
+	if (!file.is_open()) { //confirma que se pueda abrir el archivo
 		std::cout << "Error al abrir el archivo...\n";
 	}
-	lis->guardarJugador(file);
+	lis->guardarJugador(file); 
 	file.close();
 }
 
 Lista* Juego::cargarLista() {
 
-	std::string nickname;
+	std::string nickname; //se declaran las variables necesarias para los jugadores y lista
 	std::string palo;
 	std::string valor;
 	std::string buffer;
@@ -274,7 +274,7 @@ Lista* Juego::cargarLista() {
 
 
 	while (std::getline(file, buffer)) {
-		std::istringstream linea{ buffer };
+		std::istringstream linea{ buffer }; //guarda toda la linea
 		std::getline(linea, nickname, '&');
 		std::getline(linea, cant, '&');
 		std::getline(linea, cont, '&');
@@ -286,22 +286,22 @@ Lista* Juego::cargarLista() {
 			mano->agregarCarta(c);
 		}
 		Jugador* j1 = new Jugador(nickname, mano);
-		j1->setNumJug(stringToInt(cont));
+		j1->setNumJug(stringToInt(cont)); //Les asigna el numero de turno que se tenia y lo pasa de string a int
 		lis->insertarFinal(j1);
 	}
-	return lis;
+	return lis; //devuelve la lista recuperada del archivo
 }
 
 
-int Juego::stringToInt(std::string s) {
+int Juego::stringToInt(std::string s) { //recibe un string
 	int x;
-	std::stringstream ss;
-	ss << s;
-	ss >> x;
-	return x;
+	std::stringstream ss; 
+	ss << s; 
+	ss >> x; //pasa el string a int
+	return x; //devuelve el el valor en int
 }
 
-void Juego::guardarMazo(Mazo* m, std::string n) {
+void Juego::guardarMazo(Mazo* m, std::string n) { //pasa por parametro el mazo a guardar y el nombre del archivo
 	std::ofstream file;
 
 	file.open(n, std::ios::out);
@@ -310,7 +310,7 @@ void Juego::guardarMazo(Mazo* m, std::string n) {
 	}
 
 	m->guardarMazo(file);
-	file.close();
+	file.close(); //cierra el archivo
 }
 
 Mazo* Juego::cargarMazo() {
@@ -334,16 +334,16 @@ Mazo* Juego::cargarMazo() {
 		for (int i = 0; i < stringToInt(cant); i++) {
 			std::getline(linea, valor, ',');
 			std::getline(linea, palo, '|');
-			Carta* c = new Carta(valor, palo);
-			mazo->agregarCarta(c);
+			Carta* c = new Carta(valor, palo); //Se crea la carta con los valores recuperados
+			mazo->agregarCarta(c); 
 
 		}
 	}
 
-	return mazo;
+	return mazo; //Devuelve el mazo con las cartas del archico
 }
 
-void Juego::guardarDealer(Dealer* d, std::string pa) {
+void Juego::guardarDealer(Dealer* d, std::string pa) { 
 
 	std::ofstream file;
 
@@ -353,7 +353,7 @@ void Juego::guardarDealer(Dealer* d, std::string pa) {
 		std::cout << "Error al abrir el archivo...\n";
 	}
 
-	d->guardarDealer(file);
+	d->guardarDealer(file); //guarda el dealer que recibe por paramentro
 	file.close();
 }
 
@@ -372,7 +372,7 @@ Dealer* Juego::cargarDealer() {
 		std::cout << "Error al abrir el archivo...\n";
 	}
 
-	Dealer* a = nullptr;
+	Dealer* a = nullptr; //Se hace un dealer aux para guardar el dealer recuperado
 	while (std::getline(file, buffer)) {
 		std::istringstream linea{ buffer };
 		std::getline(linea, nickname, '%');
@@ -386,17 +386,11 @@ Dealer* Juego::cargarDealer() {
 		}
 		a = new Dealer("dealer", mano);
 	}
-	return a;
+	return a; //Regresa el auxiliar con la informacion del dealer
 }
 
-void Juego::cargarPartida() {
-	if (cargarDealer() == nullptr) {
-		std::cout << "ERROR";
-	}
-	iniciarPartidas(cargarMazo(), cargarLista(), cargarDealer(), cargarTurno());
-}
 
-void Juego::guardarTurno(int i, std::string pa) {
+void Juego::guardarTurno(int i, std::string pa) { 
 	std::ofstream file;
 
 	file.open(pa, std::ios::out);
@@ -405,7 +399,7 @@ void Juego::guardarTurno(int i, std::string pa) {
 		std::cout << "Error al abrir el archivo...\n";
 	}
 
-	file << i << "%";
+	file << i << "%"; //Guarda el turno donde quedo la partida
 
 	file.close();
 }
@@ -423,8 +417,12 @@ int Juego::cargarTurno() {
 
 	while (std::getline(file, buffer)) {
 		std::istringstream linea{ buffer };
-		std::getline(linea, num, '%');
+		std::getline(linea, num, '%'); 
 	}
-	return stringToInt(num);
+	return stringToInt(num); //Pase el numero de turno de string a int
 
+}
+
+void Juego::cargarPartida() {
+	iniciarPartidas(cargarMazo(), cargarLista(), cargarDealer(), cargarTurno()); //Continua la partida con los datos recuperados
 }

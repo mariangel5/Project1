@@ -7,7 +7,6 @@ public:
 	Lista(); 
 	~Lista();
 	Nodo* getInicio();
-	void insertar(Nodo);
 	bool borrarJug(int); //recibe el nombre del jugador que se quiere borrar
 	std::string toString();
 	bool listaVacia(); 

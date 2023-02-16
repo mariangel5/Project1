@@ -87,7 +87,7 @@ int Carta::stringToInt(std::string v) { //Convierte los valores de la carta a In
 	else if (v == "J") { return x = 10; }
 	else if (v == "Q") { return x = 10; }
 	else if (v == "K") { return x = 10; }
-	return x;
+	return x; //devuelve el valor en int
 }
 
 void Carta::guardarCarta(std::ofstream& partida) {

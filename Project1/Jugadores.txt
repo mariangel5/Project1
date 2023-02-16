@@ -1,0 +1,4 @@
+Maria&3&0&3,Espadas|K,Treboles|7,Corazones
+Luis&3&1&4,Treboles|10,Treboles|8,Corazones
+Juan&3&2&5,Corazones|10,Diamantes|Q,Treboles
+Carlos&2&3&5,Diamantes|8,Espadas
